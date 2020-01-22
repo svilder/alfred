@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_140152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "keywords", force: :cascade do |t|
-    t.string "title"
-    t.bigint "long_note_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["long_note_id"], name: "index_keywords_on_long_note_id"
-  end
-
   create_table "long_notes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -93,7 +85,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_140152) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "keywords", "long_notes"
   add_foreign_key "long_notes", "users"
   add_foreign_key "missions", "users"
   add_foreign_key "objectives", "users"

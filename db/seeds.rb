@@ -16,5 +16,3 @@ Mission.create(user_id: 1, title: "Maxime Hervé", client_name: "Maxime Hervé")
 
 LongNote.create(user_id: 1, title: "Siteweb RogerVilder - compte rendu d'expérience", )
 # description
-
-Keyword.create(long_note_id: 1, title: "rails")

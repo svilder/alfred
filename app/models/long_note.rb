@@ -1,6 +1,5 @@
 class LongNote < ApplicationRecord
-  belongs_to :user
-  has_many :keywords
+  belongs_to :users
 
   validates :title, presence: true
 end
