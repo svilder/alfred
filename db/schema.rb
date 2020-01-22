@@ -10,10 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_092712) do
+ActiveRecord::Schema.define(version: 2020_01_22_140152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "title"
+    t.bigint "long_note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["long_note_id"], name: "index_keywords_on_long_note_id"
+  end
+
+  create_table "long_notes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_long_notes_on_user_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "client_name"
+    t.string "time_spent"
+    t.integer "money_earned"
+    t.text "note"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_missions_on_user_id"
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_objectives_on_user_id"
+  end
+
+  create_table "short_notes", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_short_notes_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "description"
+    t.boolean "status"
+    t.bigint "to_do_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["to_do_list_id"], name: "index_tasks_on_to_do_list_id"
+  end
+
+  create_table "to_do_lists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_to_do_lists_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +88,16 @@ ActiveRecord::Schema.define(version: 2020_01_22_092712) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "keywords", "long_notes"
+  add_foreign_key "long_notes", "users"
+  add_foreign_key "missions", "users"
+  add_foreign_key "objectives", "users"
+  add_foreign_key "short_notes", "users"
+  add_foreign_key "tasks", "to_do_lists"
+  add_foreign_key "to_do_lists", "users"
 end
