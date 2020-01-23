@@ -1,0 +1,39 @@
+.wrapper {
+  margin-top: 100px;
+}
+
+.left-bar,
+.top-bar {
+  background-color: $blue;
+}
+
+.side-bars {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  height: 100vh;
+}
+
+.right-bar {
+  background-color: $yellow;
+  color: black;
+  width: 248px;
+}
+
+.left-bar {
+  width: 80px;
+}
+
+.top-bar {
+  height: 80px;
+  width: calc(100% - 248px);
+  position: fixed;
+  top: 0;
+}
+
+.left-menu,
+.top-menu {
+  list-style: none;
+  padding: 0;
+}
