@@ -11,9 +11,16 @@
   </head>
   <body>
     <% unless action_name == "home" %>
-      <%= render 'shared/right_bar' %>
+      <div class="side-bars">
+        <%= render 'shared/left-bar' %>
+        <div class="wrapper">
+          <%= yield %>
+        </div>
+        <%= render 'shared/right-bar' %>
+      </div>
+      <%= render 'shared/top-bar' %>
       <%= render 'shared/flashes' %>
-      <%= yield %>
+
     <% end %>
     <%= javascript_include_tag 'application' %>
 
