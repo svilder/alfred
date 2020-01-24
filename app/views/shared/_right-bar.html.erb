@@ -1,6 +1,17 @@
 <div class="right-bar">
   <div class="username">
-    <p>Sandra</p>
+    <ul class="dropdown">
+      <% if user_signed_in? %>
+        <li class= "dropdown-toggle", id= "navbarDropdown", data= { toggle= "dropdown" }, aria-haspopup= true, aria-expanded= false>
+          <%= current_user.username %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+    </ul>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "" %>
+    <% end %>
   </div>
   <div class="percent box">
     <p>24%</p>

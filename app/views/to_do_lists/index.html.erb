@@ -1,1 +1,10 @@
-<h1>yolo</h1>
+<div class="task-list-wrapper">
+  <% @to_do_lists.each do |list|%>
+    <div class="task-list">
+      <h4><%= list.title %></h4>
+      <% list.tasks.each do |task| %>
+        <p><%= task.description %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
