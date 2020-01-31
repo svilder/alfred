@@ -20,7 +20,8 @@
       </div>
       <%= render 'shared/top-bar' %>
       <%= render 'shared/flashes' %>
-
+    <% else %>
+      <%= yield %>
     <% end %>
     <%= javascript_include_tag 'application' %>
 

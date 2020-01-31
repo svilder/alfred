@@ -2,6 +2,16 @@
   margin-top: 100px;
 }
 
+.main-wrapper {
+  background-color: $darkblue;
+  width: 100vw;
+  height: 100vh;
+  color: $gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .left-bar,
 .top-bar {
   background-color: $blue;
@@ -12,7 +22,7 @@
   justify-content: space-between;
   position: sticky;
   top: 0px;
-  // height: 100vh;
+  height: 100vh;
 }
 
 .right-bar {
