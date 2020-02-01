@@ -1,1 +1,3 @@
-<%= render 'form' %>
+<% if policy(ToDoList).create? %>
+  <%= render 'form' %>
+<% end %>

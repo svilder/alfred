@@ -1,26 +1,31 @@
 <div class="left-bar">
   <ul class="left-menu">
     <li class="action">
-      <%= link_to new_to_do_list_path do %>
-        <i class="far fa-plus-square"></i>
-      <% end %>
+      <%# if policy(ToDoList).create? %>
+        <%#= link_to new_to_do_list_path do %>
+          <!-- <i class="far fa-plus-square"></i> -->
+        <%# end %>
+      <%# end %>
     </li>
     <li class="action">
-      <%#= link_to edit_to_do_list_path(@to_do_list) do %>
-      <%= link_to "#" do %>
-        <i class="far fa-edit"></i>
-      <% end %>
+      <%# @to_do_lists.each do |to_do_list| %>
+        <%# if policy(ToDoList).edit? %>
+          <%#= link_to edit_to_do_list_path(to_do_list) do %>
+            <!-- <i class="far fa-edit"></i> -->
+          <%# end %>
+        <%# end %>
+      <%# end %>
     </li>
     <li class="action">
-      <%= link_to "#" do %>
-        <i class="far fa-save"></i>
-      <% end %>
+      <%#= link_to "#" do %>
+        <!-- <i class="far fa-save"></i> -->
+      <%# end %>
     </li>
     <li class="action">
-      <%= link_to "#" do %>
+      <%#= link_to "#" do %>
       <%#= link_to to_do_list_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="far fa-trash-alt"></i>
-      <% end %>
+        <!-- <i class="far fa-trash-alt"></i> -->
+      <%# end %>
     </li>
   </ul>
 </div>
