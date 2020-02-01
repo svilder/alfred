@@ -1,7 +1,17 @@
+<div class="action">
+  <% if policy(ToDoList).create? %>
+    <%= link_to new_to_do_list_path do %>
+      <i class="far fa-plus-square"></i>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="task-list-wrapper">
   <% @to_do_lists.each do |list|%>
     <div class="task-list">
-      <h4><%= list.title %></h4>
+      <%= link_to to_do_list_path(list) do %>
+        <h4><%= list.title %></h4>
+      <% end %>
       <% list.tasks.each do |task| %>
         <p><%= task.description %></p>
       <% end %>
