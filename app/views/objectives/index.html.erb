@@ -1,0 +1,19 @@
+<div class="action">
+  <% if policy(Objectif).create? %>
+    <%= link_to new_objectif_path do %>
+      <i class="far fa-plus-square"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="objectives-wrapper">
+  <% @objectives.each do |objectif|%>
+    <div class="objectif">
+      <%= link_to objectif_path(objectif) do %>
+        <h4><%= objectif.title %></h4>
+      <% end %>
+        <p><%= objectif.description %></p>
+        <p><%= objectif.date%></p>
+    </div>
+  <% end %>
+</div>

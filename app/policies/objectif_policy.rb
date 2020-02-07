@@ -1,4 +1,4 @@
-class ToDoListPolicy < ApplicationPolicy
+class ObjectifPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(user: user)

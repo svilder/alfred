@@ -54,5 +54,4 @@ class ToDoListsController < ApplicationController
   def to_do_list_params
     params.require(:to_do_list).permit(:title, :user_id)
   end
-
 end
