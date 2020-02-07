@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :to_do_lists
-  # do
-  #   resources :tasks
-  # end
+  resources :to_do_lists do
+    resources :tasks
+  end
   resources :objectives
   #  resources :missions, except: :index
   #  get "/missions", to: 'missions#index', as: board_of_missions
