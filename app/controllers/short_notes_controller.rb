@@ -31,7 +31,7 @@ class ShortNotesController < ApplicationController
     if @short_note.save
       redirect_to short_notes_path
     else
-      render :new
+      render :edit
     end
   end
 

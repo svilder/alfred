@@ -31,8 +31,14 @@
             <%= task.description %>
           </p>
         <% end %>
-
       <% end %>
+      <div class="action">
+        <% if policy(Task).create? %>
+          <%= link_to new_to_do_list_task_path(list) do %>
+            <i class="far fa-plus-square"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

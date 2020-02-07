@@ -31,7 +31,7 @@ class ObjectivesController < ApplicationController
     if @objectif.save
       redirect_to objectives_path
     else
-      render :new
+      render :edit
     end
   end
 

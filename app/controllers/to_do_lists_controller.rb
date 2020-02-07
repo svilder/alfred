@@ -4,7 +4,6 @@ class ToDoListsController < ApplicationController
 
   def index
     @to_do_lists = policy_scope(ToDoList).order(created_at: :desc)
-    @task = Task.new
   end
 
   def show
@@ -35,7 +34,7 @@ class ToDoListsController < ApplicationController
     if @to_do_list.save
       redirect_to to_do_lists_path
     else
-      render :new
+      render :edit
     end
   end
 
