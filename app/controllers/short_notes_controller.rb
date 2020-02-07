@@ -1,0 +1,2 @@
+class ShortNotesController < ApplicationController
+end

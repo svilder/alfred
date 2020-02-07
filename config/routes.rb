@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   #  resources :missions, except: :index
   #  get "/missions", to: 'missions#index', as: board_of_missions
    resources :long_notes
-  #  resources :short_notes
+   resources :short_notes
 end
