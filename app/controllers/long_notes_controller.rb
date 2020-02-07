@@ -34,7 +34,7 @@ class LongNotesController < ApplicationController
     if @long_note.save
       redirect_to long_notes_path
     else
-      render :new
+      render :edit
     end
   end
 
