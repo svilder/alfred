@@ -1,0 +1,2 @@
+class LongNotesController < ApplicationController
+end
