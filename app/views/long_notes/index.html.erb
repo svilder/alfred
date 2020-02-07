@@ -1,0 +1,17 @@
+<div class="action">
+  <% if policy(LongNote).create? %>
+    <%= link_to new_long_note_path do %>
+      <i class="far fa-plus-square"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="long_notes-wrapper">
+  <% @long_notes.each do |long_note|%>
+    <div class="">
+      <%= link_to long_note_path(long_note) do %>
+        <p><%= long_note.title %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

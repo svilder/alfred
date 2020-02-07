@@ -1,0 +1,19 @@
+<div class="card long_note">
+  <p><%= @long_note.description %></p>
+  <div class="action-box">
+    <div class="action">
+      <% if policy(LongNote).edit? %>
+        <%= link_to edit_long_note_path(@long_note) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="action">
+      <% if policy(LongNote).destroy? %>
+        <%= link_to @long_note, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
