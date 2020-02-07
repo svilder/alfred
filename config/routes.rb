@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # do
   #   resources :tasks
   # end
-  #  resources :objectives
+  resources :objectives
   #  resources :missions, except: :index
   #  get "/missions", to: 'missions#index', as: board_of_missions
   #  resources :long_notes
