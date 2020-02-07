@@ -1,12 +1,9 @@
 class ObjectivesController < ApplicationController
-  before_action :set_objectif, only: [:show, :edit, :update, :destroy]
+  before_action :set_objectif, only: [:edit, :update, :destroy]
   before_action :skip_pundit?
 
   def index
     @objectives = policy_scope(Objectif).order(created_at: :desc)
-  end
-
-  def show
   end
 
   def new
@@ -32,7 +29,7 @@ class ObjectivesController < ApplicationController
     @objectif.update(objectif_params)
 
     if @objectif.save
-      redirect_to objectifs_path
+      redirect_to objectives_path
     else
       render :new
     end
@@ -51,6 +48,6 @@ class ObjectivesController < ApplicationController
   end
 
   def objectif_params
-    params.require(:objectif).permit(:title, :user_id)
+    params.require(:objectif).permit(:title, :description, :date, :user_id)
   end
 end

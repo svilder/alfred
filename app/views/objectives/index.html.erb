@@ -8,12 +8,26 @@
 
 <div class="objectives-wrapper">
   <% @objectives.each do |objectif|%>
-    <div class="objectif">
-      <%= link_to objectif_path(objectif) do %>
-        <h4><%= objectif.title %></h4>
-      <% end %>
-        <p><%= objectif.description %></p>
-        <p><%= objectif.date%></p>
+    <div class="card objectif">
+      <h5><%= objectif.title %></h5>
+      <p><%= objectif.description %></p>
+      <p><em><i class="fas fa-long-arrow-alt-right"></i><%= objectif.date %></em></p>
+      <div class="action-box">
+        <div class="action">
+          <% if policy(Objectif).edit? %>
+            <%= link_to edit_objectif_path(objectif) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="action">
+          <% if policy(Objectif).destroy? %>
+            <%= link_to objectif, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

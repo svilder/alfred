@@ -1,6 +1,8 @@
-<%= simple_form_for @to_do_list do |f| %>
+<%= simple_form_for @objectif do |f| %>
   <%= f.input :title %>
-  <%= f.button :submit %>
+  <%= f.input :description %>
+  <%= f.input :date, label: "Pour quand" %>
+  <%= f.button :submit, class: "button" %>
 <% end %>
 
 <!-- <li class="action">

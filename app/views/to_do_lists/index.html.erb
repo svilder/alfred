@@ -8,7 +8,7 @@
 
 <div class="task-list-wrapper">
   <% @to_do_lists.each do |list|%>
-    <div class="task-list">
+    <div class="card">
       <%= link_to to_do_list_path(list) do %>
         <h4><%= list.title %></h4>
       <% end %>
