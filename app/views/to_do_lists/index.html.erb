@@ -1,20 +1,39 @@
-<div class="action">
-  <% if policy(ToDoList).create? %>
-    <%= link_to new_to_do_list_path do %>
-      <i class="far fa-plus-square"></i>
+<div class="title">
+  <h4>To do lists</h4>
+  <div class="action-create">
+    <% if policy(ToDoList).create? %>
+      <%= link_to new_to_do_list_path do %>
+        <h4><i class="far fa-plus-square"></i></h4>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
-<div class="task-list-wrapper">
+<div class="grid-3fr-wrapper">
   <% @to_do_lists.each do |list|%>
     <div class="card">
       <%= link_to to_do_list_path(list) do %>
         <h4><%= list.title %></h4>
       <% end %>
       <% list.tasks.each do |task| %>
-        <p><%= task.description %></p>
+        <% if task.status %>
+          <p>
+            <%= link_to "#" do %>
+              <span class="check"><i class="far fa-check-square"></i></span>
+            <% end %>
+            <%= task.description %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to "#" do %>
+              <span class="check"><i class="far fa-square"></i></span>
+            <% end %>
+            <%= task.description %>
+          </p>
+        <% end %>
+
       <% end %>
     </div>
   <% end %>
 </div>
+

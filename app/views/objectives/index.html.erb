@@ -1,9 +1,12 @@
-<div class="action">
-  <% if policy(Objectif).create? %>
-    <%= link_to new_objectif_path do %>
-      <i class="far fa-plus-square"></i>
+<div class="title">
+  <h4>Objectives</h4>
+  <div class="action-create">
+    <% if policy(Objectif).create? %>
+      <%= link_to new_objectif_path do %>
+        <h4><i class="far fa-plus-square"></i></h4>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <div class="objectives-wrapper">

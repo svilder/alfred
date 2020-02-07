@@ -1,0 +1,26 @@
+.action a {
+  color: black;
+  font-size: 20px;
+}
+
+.action {
+  margin: 8px;
+}
+
+.action-box {
+  display: flex;
+  // position: relative;
+  // left: 700px;
+  // bottom: 54px;
+}
+
+.action-create {
+  margin-left: 8px;
+  a {
+    color: $gray;
+  }
+}
+
+.title {
+  display: flex;
+}

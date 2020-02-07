@@ -1,0 +1,5 @@
+<%= simple_form_for @short_note do |f| %>
+  <%= f.input :description %>
+  <%= f.input :date, label: "Pour quand" %>
+  <%= f.button :submit, class: "button" %>
+<% end %>
