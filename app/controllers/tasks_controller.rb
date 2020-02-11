@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
+  # before_action :set_list, except: [:mark_as_done]
   before_action :skip_pundit?
 
   def new
@@ -14,7 +15,7 @@ class TasksController < ApplicationController
     authorize @task
 
     if @task.save
-      redirect_to to_do_lists_path
+      redirect_to to_do_list_path(params[:to_do_list_id])
     else
       render :new
     end
@@ -27,7 +28,7 @@ class TasksController < ApplicationController
     @task.update(task_params)
 
     if @task.save
-      redirect_to to_do_lists_path
+      redirect_to to_do_list_path(params[:id])
     else
       render :edit
     end
@@ -51,6 +52,10 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
     authorize @task
+  end
+
+  def set_list
+    @task.to_do_list_id = params[:to_do_list_id]
   end
 
   def task_params

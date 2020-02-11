@@ -16,29 +16,19 @@
         <h4><%= list.title %></h4>
       <% end %>
       <% list.tasks.each do |task| %>
-        <% if task.status %>
-          <p>
-            <%= link_to "#" do %>
-              <span class="check"><i class="far fa-check-square"></i></span>
+        <div class="task-wrap">
+          <div class="check">
+            <% if task.status %>
+              <span class=""><i class="far fa-check-square"></i></span>
+            <% else %>
+              <span class=""><i class="far fa-square"></i></span>
             <% end %>
+          </div>
+          <div class="task-description">
             <%= task.description %>
-          </p>
-        <% else %>
-          <p>
-            <%= link_to "#" do %>
-              <span class="check"><i class="far fa-square"></i></span>
-            <% end %>
-            <%= task.description %>
-          </p>
-        <% end %>
+          </div>
+        </div>
       <% end %>
-      <div class="action">
-        <% if policy(Task).create? %>
-          <%= link_to new_to_do_list_task_path(list) do %>
-            <i class="far fa-plus-square"></i>
-          <% end %>
-        <% end %>
-      </div>
     </div>
   <% end %>
 </div>
