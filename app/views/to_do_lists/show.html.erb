@@ -1,24 +1,59 @@
-<div class="task-list-wrapper">
-  <div class="task-list">
+<div class="card">
+  <div class="task-wrap">
     <h4><%= @to_do_list.title %></h4>
     <div class="action">
       <% if policy(ToDoList).edit? %>
         <%= link_to edit_to_do_list_path(@to_do_list) do %>
-          <i class="far fa-edit"></i>
+          <h4><i class="far fa-edit"></i></h4>
         <% end %>
       <% end %>
     </div>
-
     <div class="action">
       <% if policy(ToDoList).destroy? %>
         <%= link_to @to_do_list, method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="far fa-trash-alt"></i>
+          <h4><i class="far fa-trash-alt"></i></h4>
         <% end %>
       <% end %>
     </div>
+  </div>
 
     <% @to_do_list.tasks.each do |task| %>
-      <p><%= task.description %></p>
+      <div class="task-wrap">
+        <div class="check">
+          <% if task.status %>
+            <%= link_to "#" do %>
+              <span class=""><i class="far fa-check-square"></i></span>
+            <% end %>
+          <% else %>
+            <%= link_to "#" do %>
+              <span class=""><i class="far fa-square"></i></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="task-description">
+          <%= task.description %>
+        </div>
+        <div class="action">
+          <% if policy(Task).edit? %>
+            <%= link_to edit_task_path(task) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="action">
+          <% if policy(Task).destroy? %>
+            <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </div>
+    <div class="action">
+      <% if policy(Task).create? %>
+        <%= link_to new_to_do_list_task_path(@to_do_list) do %>
+          <i class="far fa-plus-square"></i>
+        <% end %>
+      <% end %>
+    </div>
 </div>

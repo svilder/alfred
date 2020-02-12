@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
 
   resources :to_do_lists do
-    resources :tasks
+    resources :tasks, only: [ :new, :create ]
   end
+  resources :tasks, only: [ :destroy, :edit, :update ]
   resources :objectives
   #  resources :missions, except: :index
   #  get "/missions", to: 'missions#index', as: board_of_missions
