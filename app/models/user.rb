@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :missions
   has_many :long_notes
 
-  validates :username, presence: true
+  # validates :username, presence: true
 end
