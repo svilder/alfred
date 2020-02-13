@@ -22,13 +22,12 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @to_do_list = ToDoList.find(params[:to_do_list_id])
   end
 
   def update
-    @task.update(task_params)
-
-    if @task.save
-      redirect_to to_do_list_path(params[:id])
+    if @task.update(task_params)
+      redirect_to to_do_list_path(params[:to_do_list_id])
     else
       render :edit
     end
@@ -54,9 +53,10 @@ class TasksController < ApplicationController
     authorize @task
   end
 
-  def set_list
-    @task.to_do_list_id = params[:to_do_list_id]
-  end
+  # Uncomment if necessary, if not ... destroy this fucking mess
+  # def set_list
+  #   @task.to_do_list_id = params[:to_do_list_id]
+  # end
 
   def task_params
     params.require(:task).permit(:description, :status, :to_do_list_id)
