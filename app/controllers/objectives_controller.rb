@@ -13,7 +13,7 @@ class ObjectivesController < ApplicationController
   end
 
   def create
-    @objectif = Objectif.newobjectif_params)
+    @objectif = Objectif.new(objectif_params)
     @objectif.user = current_user
     authorize @objectif
 
