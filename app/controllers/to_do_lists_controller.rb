@@ -21,7 +21,7 @@ class ToDoListsController < ApplicationController
     authorize @to_do_list
 
     if @to_do_list.save
-      redirect_to to_do_lists_path
+      redirect_to to_do_list_path(@to_do_list)
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ToDoListsController < ApplicationController
     @to_do_list.update(to_do_list_params)
 
     if @to_do_list.save
-      redirect_to to_do_lists_path
+      redirect_to to_do_list_path(@to_do_list)
     else
       render :edit
     end
