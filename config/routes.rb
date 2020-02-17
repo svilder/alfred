@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
 
   resources :to_do_lists do
-    resources :tasks, only: [ :new, :create, :edit, :update ]
+    resources :tasks, only: [ :new, :create ]
   end
 
-  resources :tasks, only: [ :destroy ]
+  resources :tasks, only: [ :destroy, :edit, :update  ] do
+    patch 'done', to: 'tasks#done'
+  end
+
   resources :objectives
   resources :missions
   resources :long_notes

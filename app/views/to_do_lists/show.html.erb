@@ -17,15 +17,15 @@
     </div>
   </div>
 
-    <% @to_do_list.tasks.each do |task| %>
+    <% @to_do_list.tasks.order(:status).each do |task| %>
       <div class="task-wrap">
         <div class="check">
           <% if task.status %>
-            <%= link_to "#" do %>
+            <%= link_to task_done_path(task), method: :patch do %>
               <span class=""><i class="far fa-check-square"></i></span>
             <% end %>
           <% else %>
-            <%= link_to "#" do %>
+            <%= link_to task_done_path(task), method: :patch do %>
               <span class=""><i class="far fa-square"></i></span>
             <% end %>
           <% end %>
@@ -35,7 +35,7 @@
         </div>
         <div class="action">
           <% if policy(Task).edit? %>
-            <%= link_to  edit_to_do_list_task_path(@to_do_list, task) do %>
+            <%= link_to  edit_task_path(task) do %>
               <i class="far fa-edit"></i>
             <% end %>
           <% end %>

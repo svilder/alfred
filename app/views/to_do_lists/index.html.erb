@@ -15,7 +15,7 @@
       <%= link_to to_do_list_path(list) do %>
         <h4><%= list.title %></h4>
       <% end %>
-      <% list.tasks.each do |task| %>
+      <% list.tasks.order(:status).each do |task| %>
         <div class="task-wrap">
           <div class="check">
             <% if task.status %>
