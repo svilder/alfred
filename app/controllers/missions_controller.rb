@@ -14,6 +14,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+    @mission.user = current_user
     authorize @mission
 
     if @mission.save
@@ -44,11 +45,11 @@ class MissionsController < ApplicationController
   private
 
   def set_mission
-    @mission = mission.find(params[:id])
+    @mission = Mission.find(params[:id])
     authorize @mission
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :client_name, :time_spent, :money_earned, :note, :user_id)
+    params.require(:mission).permit(:title, :description, :client_name, :time_spent, :money_earned, :note)
   end
 end

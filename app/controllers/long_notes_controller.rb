@@ -10,12 +10,14 @@ class LongNotesController < ApplicationController
   end
 
   def new
-    @long_note = current_user.long_notes.new
+    @long_note = LongNote.new
+    @long_note.user = current_user
     authorize @long_note
   end
 
   def create
-    @long_note = current_user.long_notes.new(long_note_params)
+    @long_note = LongNote.new(long_note_params)
+    @long_note.user = current_user
     authorize @long_note
 
     if @long_note.save
@@ -51,6 +53,6 @@ class LongNotesController < ApplicationController
   end
 
   def long_note_params
-    params.require(:long_note).permit(:title, :description, :user_id)
+    params.require(:long_note).permit(:title, :description)
   end
 end

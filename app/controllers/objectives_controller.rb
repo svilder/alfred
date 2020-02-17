@@ -7,12 +7,14 @@ class ObjectivesController < ApplicationController
   end
 
   def new
-    @objectif = current_user.objectives.new
+    @objectif = Objectif.new
+    @objectif.user = current_user
     authorize @objectif
   end
 
   def create
-    @objectif = current_user.objectives.new(objectif_params)
+    @objectif = Objectif.newobjectif_params)
+    @objectif.user = current_user
     authorize @objectif
 
     if @objectif.save
@@ -48,6 +50,6 @@ class ObjectivesController < ApplicationController
   end
 
   def objectif_params
-    params.require(:objectif).permit(:title, :description, :date, :user_id)
+    params.require(:objectif).permit(:title, :description, :date)
   end
 end

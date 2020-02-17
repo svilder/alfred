@@ -7,12 +7,14 @@ class ShortNotesController < ApplicationController
   end
 
   def new
-    @short_note = current_user.short_notes.new
+    @short_note = ShortNotes.new
+    @short_note.user = current_user
     authorize @short_note
   end
 
   def create
-    @short_note = current_user.short_notes.new(short_note_params)
+    @short_note = ShortNote.new(short_note_params)
+    @short_note.user = current_user
     authorize @short_note
 
     if @short_note.save
@@ -48,6 +50,6 @@ class ShortNotesController < ApplicationController
   end
 
   def short_note_params
-    params.require(:short_note).permit(:description, :user_id)
+    params.require(:short_note).permit(:description)
   end
 end
