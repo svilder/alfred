@@ -23,8 +23,6 @@
 }
 
 .text-field {
-  background-color: $gray;
-  padding: 16px 32px;
   margin: 8px;
 }
 
@@ -36,4 +34,10 @@
 
 .result p {
   margin: 0;
+}
+
+input {
+  width: 68px;
+  background-color: $gray;
+  border: black;
 }
