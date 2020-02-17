@@ -10,12 +10,14 @@ class ToDoListsController < ApplicationController
   end
 
   def new
-    @to_do_list = current_user.to_do_lists.new
+    @to_do_list = ToDoList.new
+    @to_do_list.user = current_user
     authorize @to_do_list
   end
 
   def create
-    @to_do_list = current_user.to_do_lists.new(to_do_list_params)
+    @to_do_list = ToDoList.new(to_do_list_params)
+    @to_do_list.user = current_user
     authorize @to_do_list
 
     if @to_do_list.save
@@ -51,6 +53,6 @@ class ToDoListsController < ApplicationController
   end
 
   def to_do_list_params
-    params.require(:to_do_list).permit(:title, :user_id)
+    params.require(:to_do_list).permit(:title)
   end
 end

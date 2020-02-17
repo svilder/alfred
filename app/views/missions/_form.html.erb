@@ -1,0 +1,10 @@
+<%= simple_form_for @mission do |f| %>
+  <%= f.input :title, placeholder: "Page présentation jeu Ubisoft" %>
+  <%= f.input :description, placeholder: "Landing page pour la comm d'un jeu en pré-prod - fait en React" %>
+  <%= f.input :client_name, placeholder: "Ubisoft" %>
+  <%= f.input :time_spent, placeholder: "2 jours" %>
+  <%= f.input :money_earned, placeholder: "30 000 €" %>
+  <%= f.input :note, placeholder: "La directrice des comms est pas très sympa" %>
+  <%= f.button :submit, class: "button" %>
+<% end %>
+

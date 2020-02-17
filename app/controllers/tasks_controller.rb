@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
-  # before_action :set_list, except: [:mark_as_done]
   before_action :skip_pundit?
 
   def new
@@ -52,11 +51,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     authorize @task
   end
-
-  # Uncomment if necessary, if not ... destroy this fucking mess
-  # def set_list
-  #   @task.to_do_list_id = params[:to_do_list_id]
-  # end
 
   def task_params
     params.require(:task).permit(:description, :status, :to_do_list_id)

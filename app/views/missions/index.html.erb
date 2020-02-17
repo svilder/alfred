@@ -1,0 +1,39 @@
+<div class="title">
+  <h4>Board of Missions</h4>
+  <div class="action-create">
+    <% if policy(Mission).create? %>
+      <%= link_to new_mission_path do %>
+        <h4><i class="far fa-plus-square"></i></h4>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="missions-wrapper">
+  <% @missions.each do |mission|%>
+    <div class="card mission">
+      <h5><%= mission.title %></h5>
+      <p><%= mission.description %></p>
+      <p><%= mission.client_name %></p>
+      <p><em><i class="fas fa-long-arrow-alt-right"></i><%= mission.time_spent %></em></p>
+      <p><strong><%= mission.money_earned %></strong></p>
+      <p><%= mission.note %></p>
+      <div class="action-box">
+        <div class="action">
+          <% if policy(Mission).edit? %>
+            <%= link_to edit_mission_path(mission) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="action">
+          <% if policy(Mission).destroy? %>
+            <%= link_to mission, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

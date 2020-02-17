@@ -1,16 +1,11 @@
 <div class="right-bar">
   <div class="username">
-    <!-- <ul class="dropdown"> -->
-      <% if user_signed_in? %>
-       <!--  <li class= "dropdown-toggle", id= "navbarDropdown", data= { toggle= "dropdown" }, aria-haspopup= true, aria-expanded= false> -->
-          <p><%= current_user.username %></p>
-          <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div> -->
-        <!-- </li> -->
-    <!-- </ul> -->
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "You are signing out. Are you sure?" } do %>
+        <p><%= current_user.username %></p>
+      <% end %>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "" %>
+      <%= link_to "Login", new_user_session_path %>
     <% end %>
   </div>
   <div class="percent box">
