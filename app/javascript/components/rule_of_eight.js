@@ -3,17 +3,20 @@ const ruleOfEight = () => {
   const button = document.querySelector('#go-eight');
   const result = document.querySelector('#result-eight');
 
-  const findUpperValue = (number, divided) => {
+  const findUpperValue = (number) => {
     console.log(number);
-    console.log(divided);
-    let test = 0
     do {
-      number++
-      let divided = number / 8;
-      let test = Number.isInteger(divided);
-    } while (test === true);
+      number++;
+    } while ((number % 8) !== 0);
     console.log(number);
   }
+  // let number = 30;
+  // do {
+  //   number ++;
+  //   result = number % 8
+  //   console.log(result)
+  // } while (result !== 0);
+  //  console.log(number)
 
   const multipleOfEight = () => {
     let number = input.value;
@@ -29,7 +32,7 @@ const ruleOfEight = () => {
       result.insertAdjacentHTML('beforeend', `<i class="far fa-check-circle"></i>`);
     }
     // suggestion
-    findUpperValue(number, divided);
+    findUpperValue(number);
   }
 
   button.addEventListener('click', multipleOfEight);
