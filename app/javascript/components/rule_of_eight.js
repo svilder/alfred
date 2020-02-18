@@ -5,18 +5,24 @@ const ruleOfEight = () => {
 
   const findUpperValue = (number) => {
     console.log(number);
-    do {
-      number++;
-    } while ((number % 8) !== 0);
-    console.log(number);
+      let sum = 0;
+      do {
+        number++;
+        let sum = number % 8
+      } while (sum !== 0);
+      console.log(number);
   }
-  // let number = 30;
-  // do {
-  //   number ++;
-  //   result = number % 8
-  //   console.log(result)
-  // } while (result !== 0);
-  //  console.log(number)
+
+
+    //   let test = true
+    // do {
+    //   number++;
+    //   let divided = number / 8;
+    //   let test = Number.isInteger(divided);
+    //   result = number % 8;
+    //   console.log(result)
+    // } while (test === false);
+    // console.log(number);
 
   const multipleOfEight = () => {
     let number = input.value;
