@@ -1,7 +1,7 @@
 import "bootstrap";
-
 import { calculPercent } from "../components/calcul_percent";
-calculPercent();
+import { ruleOfEight } from "../components/rule_of_eight";
 
-import { ruleOfEight } from '../components/rule-of-eight';
+
+calculPercent();
 ruleOfEight();
