@@ -1,0 +1,10 @@
+const addTaskForm = document.querySelector('.new_task');
+
+const addTask = (taskShow) => {
+  const tasksList = document.querySelector('.tasks');
+  console.log(tasksList);
+  tasksList.insertAdjacentHTML('beforeend', taskShow);
+}
+
+addTask('<%= j render "show", task: @task %>');
+addTaskForm.remove();

@@ -17,41 +17,15 @@
     </div>
   </div>
 
+  <div class="tasks">
     <% @to_do_list.tasks.order(:status).each do |task| %>
-      <div class="task-wrap">
-        <div class="check">
-          <% if task.status %>
-            <%= link_to task_done_path(task), method: :patch do %>
-              <span class=""><i class="far fa-check-square"></i></span>
-            <% end %>
-          <% else %>
-            <%= link_to task_done_path(task), method: :patch do %>
-              <span class=""><i class="far fa-square"></i></span>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="task-description">
-          <%= task.description %>
-        </div>
-        <div class="action">
-          <% if policy(Task).edit? %>
-            <%= link_to  edit_task_path(task) do %>
-              <i class="far fa-edit"></i>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="action">
-          <% if policy(Task).destroy? %>
-            <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+        <%= render 'tasks/show', task: task %>
     <% end %>
+  </div>
+    <div id="last_task"></div>
     <div class="action">
       <% if policy(Task).create? %>
-        <%= link_to new_to_do_list_task_path(@to_do_list) do %>
+        <%= link_to new_to_do_list_task_path(@to_do_list), remote: true, id: "add-form" do %>
           <i class="far fa-plus-square"></i>
         <% end %>
       <% end %>

@@ -1,4 +1,4 @@
-<%= simple_form_for [@to_do_list, @task] do |f| %>
+<%= simple_form_for([@to_do_list, @task], remote: true) do |f| %>
   <%= f.input :description %>
    <%= f.input :status, as: :boolean, checked_value: true, unchecked_value: false %>
   <%= f.button :submit, class: "button" %>
