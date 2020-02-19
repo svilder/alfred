@@ -18,7 +18,7 @@
   </div>
 
     <% @to_do_list.tasks.order(:status).each do |task| %>
-      <div class="task-wrap">
+      <div class="task-wrap tasks">
         <div class="check">
           <% if task.status %>
             <%= link_to task_done_path(task), method: :patch do %>
@@ -47,6 +47,7 @@
             <% end %>
           <% end %>
         </div>
+        <div id="new_task"></div>
       </div>
     <% end %>
     <div class="action">
@@ -57,3 +58,5 @@
       <% end %>
     </div>
 </div>
+
+<!-- , remote: true -->

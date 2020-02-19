@@ -3,9 +3,9 @@ class TasksController < ApplicationController
   before_action :skip_pundit?
 
   def new
-    @to_do_list = ToDoList.find(params[:to_do_list_id])
-    @task = Task.new
-    authorize @task
+    # @to_do_list = ToDoList.find(params[:to_do_list_id])
+    # @task = Task.new
+    # authorize @task
   end
 
   def create
@@ -14,9 +14,15 @@ class TasksController < ApplicationController
     authorize @task
 
     if @task.save
-      redirect_to to_do_list_path(params[:to_do_list_id])
+      respond_to do |format|
+        format.html { redirect_to to_do_list_path(params[:to_do_list_id]) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'to_do_lists/show' }
+        format.js
+      end
     end
   end
 
