@@ -3,9 +3,13 @@ class TasksController < ApplicationController
   before_action :skip_pundit?
 
   def new
-    # @to_do_list = ToDoList.find(params[:to_do_list_id])
-    # @task = Task.new
-    # authorize @task
+    @to_do_list = ToDoList.find(params[:to_do_list_id])
+    @task = Task.new
+    authorize @task
+    respond_to do |format|
+      format.html { redirect_to new_to_do_list_task_path(@to_do_list) }
+      format.js
+    end
   end
 
   def create
@@ -27,13 +31,23 @@ class TasksController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_task_path(@task) }
+      format.js
+    end
   end
 
   def update
     if @task.update(task_params)
-      redirect_to to_do_list_path(@task.to_do_list_id)
+      respond_to do |format|
+        format.html { to_do_list_path(@task.to_do_list_id) }
+        format.js
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render 'to_do_lists/show' }
+        format.js
+      end
     end
   end
 
@@ -49,7 +63,10 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to to_do_list_path(@task.to_do_list_id)
+    respond_to do |format|
+      format.html { redirect_to to_do_list_path(@task.to_do_list_id) }
+      format.js
+    end
   end
 
   private

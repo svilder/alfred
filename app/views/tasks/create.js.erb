@@ -1,16 +1,10 @@
-const refreshForm = (innerHTML) => {
-  const newTaskForm = document.getElementById('new_task');
-  newTaskForm.innerHTML = innerHTML;
+const addTaskForm = document.querySelector('.new_task');
+
+const addTask = (taskShow) => {
+  const tasksList = document.querySelector('.tasks');
+  console.log(tasksList);
+  tasksList.insertAdjacentHTML('beforeend', taskShow);
 }
 
-const addTask = (taskHTML) => {
-  const tasks = document.getElementById('tasks');
-  tasks.insertAdjacentHTML('beforeend', taskHTML);
-}
-
-<% if @task.errors.any? %>
-  refreshForm('<%= j render "tasks/form", to_do_list: @to_do_list, task: @task %>');
-<% else %>
-  addtask('<%= j render "tasks/show", task: @task %>');
-  refreshForm('<%= j render "tasks/form", to_do_list: @to_do_list, task: Task.new %>');
-<% end %>
+addTask('<%= j render "show", task: @task %>');
+addTaskForm.remove();

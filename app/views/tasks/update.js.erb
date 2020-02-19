@@ -1,0 +1,10 @@
+const editTaskForm = document.querySelector('.edit_task')
+
+const addTask = (taskShow) => {
+  const this_task = document.querySelector('[data-task-id="<%= @task.id %>"]');
+  this_task.innerHTML = "";
+  this_task.insertAdjacentHTML('beforeend', taskShow);
+}
+
+addTask('<%= j render "show", task: @task %>');
+editTaskForm.remove();
