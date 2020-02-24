@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="tasks">
+  <div id="tasks">
     <% @to_do_list.tasks.order(:status).each do |task| %>
         <%= render 'tasks/show', task: task %>
     <% end %>
