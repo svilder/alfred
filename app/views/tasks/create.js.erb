@@ -1,10 +1,31 @@
-const addTaskForm = document.querySelector('.new_task');
 
-const addTask = (taskShow) => {
-  const tasksList = document.querySelector('.tasks');
+// const newTaskForm = document.querySelector('.new_task');
+
+function refreshForm(newForm) {
+  const form = document.querySelector('.new_task');
+  form.outerHTML = newForm;
+  removeForm(form);
+}
+
+function removeForm(form) {
+  form.remove();
+}
+
+function addTask(taskShow) {
+  const tasksList = document.getElementById('tasks');
   console.log(tasksList);
   tasksList.insertAdjacentHTML('beforeend', taskShow);
 }
 
-addTask('<%= j render "show", task: @task %>');
-addTaskForm.remove();
+// addTask('<%= j render "show", task: @task %>');
+// // newTaskForm.remove();
+// refreshForm('<%= j render "form" %>')
+
+<% if @task.errors.any? %>
+  refreshForm('<%= j render "form" %>');
+<% else %>
+  addTask('<%= j render "show", task: @task %>');
+  console.log("coucou");
+  refreshForm('<%= j render "form" %>');
+  console.log("merde");
+<% end %>

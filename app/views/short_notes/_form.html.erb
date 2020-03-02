@@ -1,4 +1,4 @@
-<%= simple_form_for @short_note do |f| %>
+<%= simple_form_for @short_note, remote: true do |f| %>
   <%= f.input :description %>
   <%= f.button :submit, class: "button" %>
 <% end %>

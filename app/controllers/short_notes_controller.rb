@@ -7,7 +7,7 @@ class ShortNotesController < ApplicationController
   end
 
   def new
-    @short_note = ShortNotes.new
+    @short_note = ShortNote.new
     @short_note.user = current_user
     authorize @short_note
   end
