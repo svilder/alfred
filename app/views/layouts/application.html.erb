@@ -12,8 +12,8 @@
   <body>
     <% unless action_name == "home" %>
       <div class="side-bars">
-        <%= render 'shared/left-bar' %>
-        <div class="wrapper">
+        <%#= render 'shared/left-bar' %>
+        <div class="wrapper main-content">
           <%= yield %>
         </div>
         <%= render 'shared/right-bar' %>

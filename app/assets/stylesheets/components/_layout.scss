@@ -1,6 +1,6 @@
 .left-bar,
 .top-bar {
-  background-color: $blue;
+  background-color: $darkblue;
 }
 
 .side-bars {
@@ -9,6 +9,11 @@
   position: sticky;
   top: 0px;
   height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin: 16px 72px;
 }
 
 .right-bar {
@@ -26,6 +31,9 @@
   width: calc(100% - 248px);
   position: fixed;
   top: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .left-menu,
