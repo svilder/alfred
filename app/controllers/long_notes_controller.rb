@@ -53,6 +53,6 @@ class LongNotesController < ApplicationController
   end
 
   def long_note_params
-    params.require(:long_note).permit(:title, :description)
+    params.require(:long_note).permit(:title, :description, images: [])
   end
 end
