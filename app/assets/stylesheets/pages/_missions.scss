@@ -1,0 +1,16 @@
+.missions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 2fr 72px;
+  grid-gap: 8px;
+}
+
+.grid-rows {
+  display: grid;
+  grid-template-rows: 48px auto;
+  grid-gap: 8px;
+}
+
+.headers {
+  font-weight: bold;
+  border-bottom: solid 1px black;
+}
