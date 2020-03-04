@@ -1,25 +1,15 @@
-.left-bar,
 .top-bar {
   background-color: $darkblue;
-}
-
-.side-bars {
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0px;
-  height: 100vh;
-}
-
-.main-content {
-  flex-grow: 1;
-  margin: 16px 72px;
 }
 
 .right-bar {
   background-color: $yellow;
   color: black;
   width: 248px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
 }
 
 .left-bar {
