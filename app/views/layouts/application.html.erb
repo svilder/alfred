@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Alfred</title>
     <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <% unless action_name == "home" %>
       <div class="side-bars">
-        <%#= render 'shared/left-bar' %>
         <div class="main-wrapper">
           <%= yield %>
         </div>
@@ -23,8 +23,5 @@
     <% else %>
       <%= yield %>
     <% end %>
-    <%= javascript_include_tag 'application' %>
-
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>

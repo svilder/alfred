@@ -3,6 +3,8 @@
 }
 
 .right-bar {
+  display: none;
+  z-index: 3;
   background-color: $yellow;
   color: black;
   width: 248px;
@@ -12,13 +14,10 @@
   height: 100%;
 }
 
-.left-bar {
-  width: 80px;
-}
-
 .top-bar {
+  z-index: 1;
   height: 80px;
-  width: calc(100% - 248px);
+  width: 100%;
   position: fixed;
   top: 0;
   flex-grow: 1;
@@ -26,7 +25,6 @@
   justify-content: center;
 }
 
-.left-menu,
 .top-menu {
   list-style: none;
   padding: 0;
