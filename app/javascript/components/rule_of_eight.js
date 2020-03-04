@@ -28,6 +28,7 @@ const ruleOfEight = () => {
     let divided = number / 8;
     let test = Number.isInteger(divided);
     result.innerHTML = "";
+    result_sign.innerHTML = "";
     if (test === false) {
       console.log("faux !");
       result_sign.insertAdjacentHTML('beforeend', `<i class="far fa-times-circle"></i>`);
