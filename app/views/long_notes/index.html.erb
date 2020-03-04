@@ -11,9 +11,17 @@
 
 <div class="long_notes-wrapper">
   <% @long_notes.each do |long_note|%>
-    <div class="">
+    <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
-        <p><%= long_note.title %></p>
+        <p>
+          <strong>
+            <%= long_note.created_at.day %>
+            of
+            <%= I18n.t('date.month_names')[long_note.created_at.month] %>
+            <%= long_note.created_at.year %> :
+          </strong>
+          <em><%= long_note.title %></em>
+        </p>
       <% end %>
     </div>
   <% end %>

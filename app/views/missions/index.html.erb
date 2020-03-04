@@ -9,15 +9,57 @@
   </div>
 </div>
 
-<div class="missions-wrapper">
-  <% @missions.each do |mission|%>
-    <div class="card mission">
-      <h5><%= mission.title %></h5>
-      <p><%= mission.description %></p>
+<div class="missions-grid">
+  <div class="card grid-rows">
+    <p class="headers">END DATE</p>
+    <% @missions.each do |mission|%>
+      <p>
+        <%= mission.updated_at.day %>
+        of
+        <%= I18n.t('date.month_names')[mission.updated_at.month] %>
+        <%= mission.updated_at.year %>
+      </p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">CLIENT</p>
+    <% @missions.each do |mission|%>
       <p><%= mission.client_name %></p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">TITLE</p>
+    <% @missions.each do |mission|%>
+      <p><%= mission.title %></p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">DESCRIPTION</p>
+    <% @missions.each do |mission|%>
+      <p><%= mission.description %></p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">TIME SPENT</p>
+    <% @missions.each do |mission|%>
       <p><em><i class="fas fa-long-arrow-alt-right"></i><%= mission.time_spent %></em></p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">TOTAL $</p>
+    <% @missions.each do |mission|%>
       <p><strong><%= mission.money_earned %></strong></p>
+    <% end %>
+  </div>
+  <div class="card grid-rows">
+    <p class="headers">NOTES</p>
+    <% @missions.each do |mission|%>
       <p><%= mission.note %></p>
+    <% end %>
+  </div>
+  <div class="grid-rows">
+    <p></p>
+    <% @missions.each do |mission|%>
       <div class="action-box">
         <div class="action">
           <% if policy(Mission).edit? %>
@@ -34,6 +76,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
