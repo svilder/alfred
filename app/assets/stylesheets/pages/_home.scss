@@ -1,1 +1,19 @@
-// Specific CSS for your home-page
+.home-image {
+  img {
+    width: 208px;
+  }
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.home-text {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  &:hover {
+    color: $yellow;
+  }
+}

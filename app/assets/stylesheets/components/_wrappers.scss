@@ -20,4 +20,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 32px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .grid-3fr-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
