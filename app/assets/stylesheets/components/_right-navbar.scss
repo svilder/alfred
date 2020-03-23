@@ -9,13 +9,15 @@
   align-items: center;
 }
 
-
+.hide {
+  display: none;
+}
 
 .tools-icon {
   z-index: 2;
   position: fixed;
   top: 44px;
-  right: 0;
+  right: 248px;
   width: 72px;
   height: 72px;
   display: flex;
@@ -27,6 +29,10 @@
   padding: 16px 0;
   background-color: $yellow;
   cursor: pointer;
+}
+
+.right-zero {
+  right: 0;
 }
 
 .tools-icon img {
