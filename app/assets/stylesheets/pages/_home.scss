@@ -1,6 +1,13 @@
 .home-image {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid 0 black;
+  border-width: 4px 4px 0 4px;
+  border-radius: 16px 16px 0 0;
+  padding: 16px;
   img {
-    width: 208px;
+    max-width: 184px;
   }
   &:hover {
     color: $yellow;
@@ -16,4 +23,23 @@
   &:hover {
     color: $yellow;
   }
+}
+
+.tools {
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  flex-wrap: wrap;
+  border: solid 0 black;
+  border-width: 4px 4px 4px 4px;
+  border-radius: 16px;
+  padding: 8px;
+  background: white;
+  background-color: $yellow;
+}
+
+.thicker {
+  border: solid 4px black;
+  border-radius: 16px;
+  background-color: $darkblue;
 }

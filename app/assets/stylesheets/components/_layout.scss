@@ -27,6 +27,9 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  border: solid 0 black;
+  border-width: 0 0 4px 0;
+  // border-radius: 16px 0 0 16px;
 }
 
 .top-menu {
