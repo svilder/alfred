@@ -7,9 +7,9 @@ const toggleTools = () => {
   const toggleSideBar = () => {
 
     console.log(rightBar);
-    rightBar.classList.toggle("hide");
+    rightBar.classList.toggle("show");
     mainWrapper.classList.toggle("margin-right");
-    button.classList.toggle("right-zero");
+    button.classList.toggle("right-248");
   }
 
   button.addEventListener('click', toggleSideBar);

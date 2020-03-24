@@ -3,6 +3,7 @@
 }
 
 .right-bar {
+  display: none;
   z-index: 3;
   background-color: $yellow;
   color: black;
@@ -11,6 +12,10 @@
   top: 0;
   right: 0;
   height: 100%;
+}
+
+.show {
+  display: flex;
 }
 
 .top-bar {
