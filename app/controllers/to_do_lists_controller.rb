@@ -1,13 +1,9 @@
 class ToDoListsController < ApplicationController
-  before_action :set_to_do_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_to_do_list, only: [:edit, :update, :destroy]
   before_action :skip_pundit?
 
   def index
     @to_do_lists = policy_scope(ToDoList).order(created_at: :desc)
-  end
-
-  def show
-    @task = Task.new
   end
 
   def new
@@ -22,7 +18,7 @@ class ToDoListsController < ApplicationController
     authorize @to_do_list
 
     if @to_do_list.save
-      redirect_to to_do_list_path(@to_do_list)
+      redirect_to to_do_lists_path
     else
       render :new
     end
@@ -35,7 +31,7 @@ class ToDoListsController < ApplicationController
     @to_do_list.update(to_do_list_params)
 
     if @to_do_list.save
-      redirect_to to_do_list_path(@to_do_list)
+      redirect_to to_do_lists_path
     else
       render :edit
     end

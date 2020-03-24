@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :to_do_lists do
+  resources :to_do_lists, except: [ :show ] do
     resources :tasks, only: [ :new, :create ]
   end
 
-  resources :tasks, only: [ :destroy, :edit, :update  ] do
+  resources :tasks, only: [ :destroy, :edit, :update ] do
     patch 'done', to: 'tasks#done'
   end
 
