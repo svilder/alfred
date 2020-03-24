@@ -28,7 +28,9 @@ import { calculPercent } from "../components/calcul_percent";
 import { ruleOfEight } from "../components/rule_of_eight";
 import { toggleTools } from "../components/toggle_tools";
 
-calculPercent();
-ruleOfEight();
-toggleTools();
+document.addEventListener("turbolinks:load", function() {
+  calculPercent();
+  ruleOfEight();
+  toggleTools();
+})
 

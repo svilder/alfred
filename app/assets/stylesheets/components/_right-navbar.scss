@@ -9,8 +9,6 @@
   align-items: center;
 }
 
-
-
 .tools-icon {
   z-index: 2;
   position: fixed;
@@ -27,6 +25,10 @@
   padding: 16px 0;
   background-color: $yellow;
   cursor: pointer;
+}
+
+.right-248 {
+  right: 248px;
 }
 
 .tools-icon img {

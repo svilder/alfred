@@ -6,48 +6,27 @@ class TasksController < ApplicationController
     @to_do_list = ToDoList.find(params[:to_do_list_id])
     @task = Task.new
     authorize @task
-    respond_to do |format|
-      format.html { redirect_to new_to_do_list_task_path(@to_do_list) }
-      format.js
-    end
   end
 
   def create
     @task = Task.new(task_params)
     @task.to_do_list_id = params[:to_do_list_id]
     authorize @task
-
     if @task.save
-      respond_to do |format|
-        format.html { redirect_to to_do_list_path(params[:to_do_list_id]) }
-        format.js
-      end
+      redirect_to to_do_lists_path
     else
-      respond_to do |format|
-        format.html { render 'to_do_lists/show' }
-        format.js
-      end
+      render 'to_do_lists'
     end
   end
 
   def edit
-    respond_to do |format|
-      format.html { redirect_to edit_task_path(@task) }
-      format.js
-    end
   end
 
   def update
     if @task.update(task_params)
-      respond_to do |format|
-        format.html { to_do_list_path(@task.to_do_list_id) }
-        format.js
-      end
+      redirect_to to_do_lists_path
     else
-      respond_to do |format|
-        format.html { render 'to_do_lists/show' }
-        format.js
-      end
+      render 'to_do_lists'
     end
   end
 
@@ -55,7 +34,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:task_id])
     authorize @task
     if @task.update_attribute(:status, status)
-      redirect_to to_do_list_path(@task.to_do_list_id), notice: "Rock star !"
+      redirect_to to_do_lists_path, notice: if @task.status then "Rock star !" else "Tomorrow is another day !" end
     else
       render :edit
     end
@@ -63,10 +42,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    respond_to do |format|
-      format.html { redirect_to to_do_list_path(@task.to_do_list_id) }
-      format.js
-    end
+    redirect_to to_do_lists_path
   end
 
   private
