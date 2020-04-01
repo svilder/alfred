@@ -1,4 +1,4 @@
-<div class="percent box thicker">
+<div class="percent box">
   <p>- 24%</p>
   <div class="field">
     <div class="text-field">
@@ -11,17 +11,22 @@
   <div id="result-percent" class="result">
   </div>
 </div>
-<div class="chrono box thicker">
+<div class="chrono box">
   <div class="controls">
     <i id="start" class="far fa-play-circle"></i>
     <i id="stop" class="far fa-stop-circle"></i>
     <div id="chrono-result" class="result"></div>
   </div>
+  <div class="clock-face">
+    <div class="hand hour-hand"></div>
+    <div class="hand min-hand"></div>
+    <div class="hand second-hand"></div>
+  </div>
   <div class="chrono-image">
     <%= image_tag "stopwatch.png", alt: "chrono" %>
   </div>
 </div>
-<div class="rule-of-eight box thicker">
+<div class="rule-of-eight box">
   <p>Rule of Eight</p>
   <div class="field">
     <div id="result-sign"></div>
