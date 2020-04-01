@@ -1,5 +1,4 @@
 const chrono = () => {
-  // const chronoImage = document.querySelector(".chrono-image");
   const buttonStart = document.querySelector('#start');
   const buttonStop = document.querySelector("#stop");
   buttonStop.classList.add("hide");
@@ -17,13 +16,11 @@ const chrono = () => {
     chronoResult.innerHTML = "";
     buttonStart.classList.add("hide");
     buttonStop.classList.remove("hide");
-    chronoImage.classList.add("hide");
   }
 
   const resetButton = () => {
     buttonStart.classList.remove("hide");
     buttonStop.classList.add("hide");
-    chronoImage.classList.remove("hide");
   }
 
   const startClock = (event) => {
