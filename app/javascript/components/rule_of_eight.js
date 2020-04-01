@@ -22,7 +22,6 @@ const ruleOfEight = () => {
     result.insertAdjacentHTML('beforeend', `${number} or `);
   }
 
-
   const multipleOfEight = () => {
     let number = input.value;
     let divided = number / 8;
