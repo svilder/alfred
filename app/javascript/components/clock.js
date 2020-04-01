@@ -1,36 +1,45 @@
 const clock = () => {
-  // get the element clock
-  // get the button start
+  const buttonStart = document.querySelector('#start');
+  const buttonStop = document.querySelector("#stop");
+  buttonStop.classList.add("hide");
+  const chronoResult = document.querySelector("#chrono-result");
 
-  const displayResult = (resultTime) {
-    // display the calcul of the chronometer
-  }
-
-  const calculTime = (beginTime, endTime) {
-    // endTime - beginTime
-  }
-
-  const getTime = (event) = {
-    // get the time of the event with seconds
+  const displayResult = (hours, mins, seconds) => {
+    console.log("displaying result");
+    chronoResult.innerHTML = "";
+    chronoResult.insertAdjacentHTML('beforeend', `<p>${hours} : ${mins} : ${seconds}</p>`);
   }
 
   const updateButton = () => {
-    // when clicked, add class "stop" to button
-    // (optionnal) add a clock running display
+    console.log("updating button");
+    buttonStart.classList.add("hide");
+    buttonStop.classList.remove("hide");
   }
 
   const startClock = (event) => {
-    const beginTime = getTime(event);
+    console.log("inside the machiiiine");
+    const beginTime = new Date().getTime();
+    console.log(beginTime);
     updateButton();
-    // get the button stop (same component)
-    // when "stop" clicked, get the time with seconds of the click event
-    buttonStop.addEventListener(click, () => {
-      const endTime = getTime();
-      // and remove class "stop" of button (avec this)
+    buttonStop.addEventListener('click', () => {
+      console.log("clicked on stop !")
+      const endTime = new Date().getTime();
+      console.log(endTime);
+
+      const calcul = endTime - beginTime;
+      const seconds = Math.floor(calcul / 1000);
+      const mins = Math.floor(seconds / 60);
+      const hours = Math.floor(mins / 60);
+
+      buttonStart.classList.remove("hide");
+      buttonStart.classList.add("mr-3");
+      buttonStop.classList.add("hide");
+      displayResult(hours, mins, seconds);
     });
-    resultTime = calculTime(beginTime, endTime);
-    displayResult(resultTime);
+
   }
 
-  button.addEventListener(click, startClock());
+  buttonStart.addEventListener('click', startClock);
 }
+
+export { clock };

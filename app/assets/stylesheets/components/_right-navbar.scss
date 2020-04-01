@@ -46,6 +46,7 @@
 }
 
 .box {
+  background-color: $darkblue;
   padding: 16px 32px;
   border-radius: 16px;
   border: solid 4px black;
@@ -69,5 +70,16 @@
 input {
   width: 68px;
   background-color: $gray;
+  border-radius: 16px;
   border: black;
+}
+
+.hide {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin: 8px;
 }
