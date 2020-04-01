@@ -27,12 +27,14 @@ import "bootstrap";
 import { calculPercent } from "../components/calcul_percent";
 import { ruleOfEight } from "../components/rule_of_eight";
 import { clock } from "../components/clock";
+import { chrono } from "../components/chrono";
 import { toggleTools } from "../components/toggle_tools";
 
 document.addEventListener("turbolinks:load", function() {
   calculPercent();
   ruleOfEight();
   clock();
+  chrono();
   toggleTools();
 })
 
