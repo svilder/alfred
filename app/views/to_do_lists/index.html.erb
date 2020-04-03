@@ -14,10 +14,10 @@
     <div class="card">
       <div class="task-wrap">
         <% if policy(ToDoList).edit? %>
-            <%= link_to edit_to_do_list_path(list) do %>
-              <h4><%= list.title %></h4>
-            <% end %>
+          <%= link_to edit_to_do_list_path(list) do %>
+            <h4><%= list.title %></h4>
           <% end %>
+        <% end %>
 
         <div class="action">
           <% if policy(ToDoList).destroy? %>
@@ -30,19 +30,17 @@
 
       <div id="tasks">
         <% list.tasks.order(:status).each do |task| %>
-            <%= render 'tasks/show', task: task %>
+          <%= render 'tasks/show', task: task %>
         <% end %>
       </div>
-        <div id="last_task">
 
-        </div>
-        <div class="action">
-          <% if policy(Task).create? %>
-            <%= link_to new_to_do_list_task_path(list) do %>
-              <i class="far fa-plus-square"></i>
-            <% end %>
+      <div class="action">
+        <% if policy(Task).create? %>
+          <%= link_to new_to_do_list_task_path(list) do %>
+            <i class="far fa-plus-square"></i>
           <% end %>
-        </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

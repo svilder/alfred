@@ -1,4 +1,7 @@
 <div class="home-wrapper">
+  <div id="app">
+    {{ message }}
+  </div>
   <%= link_to to_do_lists_path, class: "home-image" do %>
     <%= image_tag "logo.png", alt: "bat" %>
     <p class="home-text">Alfred takes notes</p>
@@ -6,3 +9,12 @@
   <div class="tools">
     <%= render 'shared/tools' %>
 </div>
+
+<script>
+  var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue !'
+  }
+})
+</script>
