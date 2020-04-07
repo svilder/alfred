@@ -20,9 +20,14 @@
             <%= I18n.t('date.month_names')[long_note.created_at.month] %>
             <%= long_note.created_at.year %> :
           </strong>
+        <br>
           <em><%= long_note.title %></em>
         </p>
       <% end %>
     </div>
   <% end %>
+</div>
+
+<div>
+  <%#= render 'show' %>
 </div>
