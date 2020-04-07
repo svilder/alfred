@@ -23,11 +23,37 @@
         <br>
           <em><%= long_note.title %></em>
         </p>
+        <div class="card">
+          <p>
+            <strong>
+              <%= long_note.created_at.day %>
+              of
+              <%= I18n.t('date.month_names')[long_note.created_at.month] %>
+              <%= long_note.created_at.year %> :
+            </strong>
+            <em><%= long_note.title %></em>
+          </p>
+          <p><%= long_note.description %></p>
+          <div class="action-box">
+            <div class="action">
+              <% if policy(LongNote).edit? %>
+                <%= link_to edit_long_note_path(long_note) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="action">
+              <% if policy(LongNote).destroy? %>
+                <%= link_to long_note, method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     </div>
   <% end %>
 </div>
 
-<div>
-  <%= render 'show' %>
-</div>

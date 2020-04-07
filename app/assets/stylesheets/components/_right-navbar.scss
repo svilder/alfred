@@ -67,9 +67,14 @@
 
 input {
   width: 68px;
-  background-color: $gray;
+  background-color: white;
   border-radius: 16px;
   border: black;
+}
+
+.form-control {
+  background-color: transparent;
+  color: $gray;
 }
 
 .hide {
