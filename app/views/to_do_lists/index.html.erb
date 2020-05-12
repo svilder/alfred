@@ -1,9 +1,9 @@
 <div class="title">
   <h4>To do lists</h4>
-  <div class="action-create">
+  <div class="action">
     <% if policy(ToDoList).create? %>
       <%= link_to new_to_do_list_path do %>
-        <h4><i class="far fa-plus-square"></i></h4>
+        <i class="far fa-plus-square"></i>
       <% end %>
     <% end %>
   </div>
@@ -22,7 +22,7 @@
         <div class="action">
           <% if policy(ToDoList).destroy? %>
             <%= link_to list, method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
-              <h4><i class="far fa-trash-alt"></i></h4>
+              <i class="far fa-trash-alt"></i>
             <% end %>
           <% end %>
         </div>
@@ -34,7 +34,7 @@
         <% end %>
       </div>
 
-      <div class="action">
+      <div class="action center">
         <% if policy(Task).create? %>
           <%= link_to new_to_do_list_task_path(list) do %>
             <i class="far fa-plus-square"></i>
