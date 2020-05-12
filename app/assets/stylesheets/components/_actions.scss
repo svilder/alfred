@@ -4,8 +4,7 @@ a:hover {
 }
 
 .action a {
-  // color: black;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .action a:hover {
@@ -14,22 +13,17 @@ a:hover {
 }
 
 .action {
-  margin: 8px;
+  margin-left: 8px;
 }
 
 .action-box {
   display: flex;
 }
 
-.action-create {
-  margin-left: 8px;
-  a {
-    color: $gray;
-  }
-  a:hover {
-    color: $yellow;
-    text-decoration: none;
-  }
+.center {
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
 }
 
 .title {
