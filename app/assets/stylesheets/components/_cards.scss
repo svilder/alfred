@@ -2,15 +2,10 @@
   background: transparent;
   padding: 16px;
   color: $gray;
-  border-radius: $border-radius;
   border-radius: 16px;
   border: solid 4px black;
 }
 
 a {
   color: $gray;
-}
-
-.todos {
-  cursor: grab;
 }

@@ -12,6 +12,11 @@
 <div class="grid-3fr-wrapper todos-container">
   <% @to_do_lists.each do |list|%>
     <div class="card todos">
+      <progress
+        value='<%= task_progress(list.tasks.count, list.tasks.where(status: true).count) %>'
+        max="100">
+      </progress>
+
       <div class="task-wrap">
         <% if policy(ToDoList).edit? %>
           <%= link_to edit_to_do_list_path(list) do %>
@@ -41,6 +46,7 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
   <% end %>
 </div>
