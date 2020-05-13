@@ -9,9 +9,9 @@
   </div>
 </div>
 
-<div class="grid-3fr-wrapper">
+<div class="grid-3fr-wrapper todos-container">
   <% @to_do_lists.each do |list|%>
-    <div class="card">
+    <div class="card todos">
       <div class="task-wrap">
         <% if policy(ToDoList).edit? %>
           <%= link_to edit_to_do_list_path(list) do %>
