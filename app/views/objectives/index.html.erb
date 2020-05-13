@@ -1,9 +1,9 @@
 <div class="title">
   <h4>Objectives</h4>
-  <div class="action-create">
+  <div class="action">
     <% if policy(Objectif).create? %>
       <%= link_to new_objectif_path do %>
-        <h4><i class="far fa-plus-square"></i></h4>
+        <i class="far fa-plus-square"></i>
       <% end %>
     <% end %>
   </div>
@@ -12,6 +12,11 @@
 <div class="objectives-wrapper">
   <% @objectives.each do |objectif|%>
     <div class="card objectif">
+      <p class="small">
+        Created the <%= objectif.created_at.day %>th of
+        <%= I18n.t('date.month_names')[objectif.created_at.month] %>
+        <%= objectif.created_at.year %>
+      </p>
       <h5><%= objectif.title %></h5>
       <p><%= objectif.description %></p>
       <p><em><i class="fas fa-long-arrow-alt-right"></i><%= objectif.date %></em></p>
