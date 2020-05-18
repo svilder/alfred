@@ -1,6 +1,5 @@
 class ShortNotesController < ApplicationController
   before_action :set_short_note, only: [:show, :edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def index
     @short_notes = policy_scope(ShortNote).order(created_at: :desc)

@@ -1,6 +1,5 @@
 class ObjectivesController < ApplicationController
   before_action :set_objectif, only: [:edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def index
     @objectives = policy_scope(Objectif).order(created_at: :desc)

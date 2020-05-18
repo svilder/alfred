@@ -18,14 +18,14 @@
       </progress>
 
       <div class="task-wrap">
-        <% if policy(ToDoList).edit? %>
+        <% if policy(list).edit? %>
           <%= link_to edit_to_do_list_path(list) do %>
             <h4><%= list.title %></h4>
           <% end %>
         <% end %>
 
         <div class="action">
-          <% if policy(ToDoList).destroy? %>
+          <% if policy(list).destroy? %>
             <%= link_to list, method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
               <i class="far fa-trash-alt"></i>
             <% end %>

@@ -5,19 +5,15 @@ class ObjectifPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    record.user == user
-  end
-
   def create?
     true
   end
 
   def update?
-    true
+    user_is_owner?
   end
 
   def destroy?
-    true
+    user_is_owner?
   end
 end

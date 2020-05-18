@@ -1,6 +1,5 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)

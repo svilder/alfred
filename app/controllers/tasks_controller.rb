@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def new
     @to_do_list = ToDoList.find(params[:to_do_list_id])

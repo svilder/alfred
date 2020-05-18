@@ -6,7 +6,7 @@ class LongNotePolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    user_is_owner?
   end
 
   def create?
@@ -14,10 +14,10 @@ class LongNotePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user_is_owner?
   end
 
   def destroy?
-    true
+    user_is_owner?
   end
 end

@@ -5,23 +5,25 @@ class TaskPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    record.user == user
-  end
-
   def create?
     true
   end
 
   def update?
-    true
+    user_is_owner?
   end
 
   def destroy?
-    true
+    user_is_owner?
   end
 
   def done?
-    true
+    user_is_owner?
+  end
+
+  private
+
+  def user_is_owner?
+    record.to_do_list.user == user
   end
 end

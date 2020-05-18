@@ -62,14 +62,14 @@
     <% @missions.each do |mission|%>
       <div class="action-box">
         <div class="action">
-          <% if policy(Mission).edit? %>
+          <% if policy(mission).edit? %>
             <%= link_to edit_mission_path(mission) do %>
               <i class="far fa-edit"></i>
             <% end %>
           <% end %>
         </div>
         <div class="action">
-          <% if policy(Mission).destroy? %>
+          <% if policy(mission).destroy? %>
             <%= link_to mission, method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="far fa-trash-alt"></i>
             <% end %>

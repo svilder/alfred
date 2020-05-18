@@ -15,14 +15,14 @@
       <p><%= short_note.description %></p>
       <div class="action-box">
         <div class="action">
-          <% if policy(ShortNote).edit? %>
+          <% if policy(short_note).edit? %>
             <%= link_to edit_short_note_path(short_note) do %>
               <i class="far fa-edit"></i>
             <% end %>
           <% end %>
         </div>
         <div class="action">
-          <% if policy(ShortNote).destroy? %>
+          <% if policy(short_note).destroy? %>
             <%= link_to short_note, method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
               <i class="far fa-trash-alt"></i>
             <% end %>

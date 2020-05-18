@@ -22,14 +22,14 @@
       <p><em><i class="fas fa-long-arrow-alt-right"></i><%= objectif.date %></em></p>
       <div class="action-box">
         <div class="action">
-          <% if policy(Objectif).edit? %>
+          <% if policy(objectif).edit? %>
             <%= link_to edit_objectif_path(objectif) do %>
               <i class="far fa-edit"></i>
             <% end %>
           <% end %>
         </div>
         <div class="action">
-          <% if policy(Objectif).destroy? %>
+          <% if policy(objectif).destroy? %>
             <%= link_to objectif, method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="far fa-trash-alt"></i>
             <% end %>

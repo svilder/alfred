@@ -1,6 +1,5 @@
 class LongNotesController < ApplicationController
   before_action :set_long_note, only: [:show, :edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def index
     @long_notes = policy_scope(LongNote).order(created_at: :desc)

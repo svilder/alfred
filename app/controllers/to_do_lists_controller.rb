@@ -1,6 +1,5 @@
 class ToDoListsController < ApplicationController
   before_action :set_to_do_list, only: [:edit, :update, :destroy]
-  before_action :skip_pundit?
 
   def index
     @to_do_lists = policy_scope(ToDoList).order(created_at: :desc)
