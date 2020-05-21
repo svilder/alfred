@@ -2,7 +2,7 @@ class LongNotesController < ApplicationController
   before_action :set_long_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @long_notes = policy_scope(LongNote).order(created_at: :desc)
+    @long_notes = policy_scope(LongNote).order(updated_at: :desc)
   end
 
   def show
