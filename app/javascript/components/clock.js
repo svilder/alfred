@@ -18,7 +18,6 @@ const clock = () => {
     const hour = now.getHours();
     const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-    console.log(secondsDegrees, minsDegrees, hourDegrees);
   }
 
   setInterval(showTime, 1000);

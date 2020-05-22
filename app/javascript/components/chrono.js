@@ -5,14 +5,12 @@ const chrono = () => {
   const chronoResult = document.querySelector("#chrono-result");
 
   const displayResult = (hours, mins, seconds) => {
-    console.log("displaying result");
     buttonStart.classList.add("mr-3");
     chronoResult.innerHTML = "";
     chronoResult.insertAdjacentHTML('beforeend', `<p>${hours} : ${mins} : ${seconds}</p>`);
   }
 
   const updateButton = () => {
-    console.log("updating button");
     chronoResult.innerHTML = "";
     buttonStart.classList.add("hide");
     buttonStop.classList.remove("hide");
@@ -24,15 +22,11 @@ const chrono = () => {
   }
 
   const startClock = (event) => {
-    console.log("inside the machiiiine");
     const beginTime = new Date().getTime();
-    console.log(beginTime);
     updateButton();
-    buttonStop.addEventListener('click', () => {
-      console.log("clicked on stop !")
-      const endTime = new Date().getTime();
-      console.log(endTime);
 
+    buttonStop.addEventListener('click', () => {
+      const endTime = new Date().getTime();
       const calcul = endTime - beginTime;
       let seconds = Math.floor(calcul / 1000);
       let mins = Math.floor(seconds / 60);

@@ -10,8 +10,7 @@ const calculPercent = () => {
 
   const calcul = () => {
     const number = input.value;
-    const result_number = number - (number * 0.24)
-    console.log(result_number);
+    const result_number = number - (number * 0.24);
     insertResult(result_number);
   };
 

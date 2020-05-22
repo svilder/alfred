@@ -29,10 +29,8 @@ const ruleOfEight = () => {
     result.innerHTML = "";
     result_sign.innerHTML = "";
     if (test === false) {
-      console.log("faux !");
       result_sign.insertAdjacentHTML('beforeend', `<i class="far fa-times-circle"></i>`);
     } else {
-      console.log("vrai !");
       result_sign.insertAdjacentHTML('beforeend', `<i class="far fa-check-circle"></i>`);
     }
     // suggestion

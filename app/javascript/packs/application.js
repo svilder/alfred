@@ -29,7 +29,6 @@ import { ruleOfEight } from "../components/rule_of_eight";
 import { clock } from "../components/clock";
 import { chrono } from "../components/chrono";
 import { toggleTools } from "../components/toggle_tools";
-// import { Draggable } from '@shopify/draggable';
 import { dragToDos } from "../components/dragToDos";
 
 document.addEventListener("turbolinks:load", function() {
@@ -41,3 +40,5 @@ document.addEventListener("turbolinks:load", function() {
   dragToDos();
 })
 
+// Stimulus
+// import "controllers";
