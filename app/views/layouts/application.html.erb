@@ -22,20 +22,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <% unless action_name == "home" %>
-      <div class="side-bars">
-        <div class="main-wrapper">
-          <%= yield %>
-        </div>
-        <%= render 'shared/right-bar' %>
+      <%= render 'shared/colorpins' %>
+      <div class="main-wrapper">
+        <%= yield %>
       </div>
+      <%= render 'shared/right-bar' %>
       <%= render 'shared/top-bar' %>
       <%= render 'shared/flashes' %>
     <% else %>
+      <%= render 'shared/colorpins' %>
       <%= yield %>
     <% end %>
   </body>

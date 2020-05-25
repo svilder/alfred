@@ -5,43 +5,31 @@
         <%= image_tag "logo.png", alt: "logo-bat" %>
       <% end %>
     </li>
-    <li class="">
+    <li>
       <%= link_to to_do_lists_path, class: "menu-item #{'active' if params[:controller] == 'to_do_lists'}" do %>
         <%= image_tag "list_gray.png", alt: "list" %>
       <% end %>
     </li>
-    <li class=''>
+    <li>
       <%= link_to objectives_path, class: "menu-item #{"active" if params[:controller] == "objectives" }" do %>
         <%= image_tag "mission_gray.png", alt: "mission" %>
       <% end %>
     </li>
-    <li class=''>
+    <li>
       <%= link_to missions_path, class: "menu-item #{"active" if params[:controller] == "missions" }" do %>
         <%= image_tag "sketchbook_gray.png", alt: "sketchbook" %>
       <% end %>
     </li>
-    <li class=''>
+    <li>
       <%= link_to long_notes_path, class: "menu-item #{"active" if params[:controller] == "long_notes" }" do %>
         <%= image_tag "notebook_gray.png", alt: "notebook" %>
       <% end %>
     </li>
-    <li class=''>
+    <li>
       <%= link_to short_notes_path, class: "menu-item #{"active" if params[:controller] == "short_notes" }" do %>
         <%= image_tag "post-it_gray.png", alt: "post-it" %>
       <% end %>
     </li>
   </ul>
-  <div class="bg-list">
-    <div class="bg-color-pin claret"></div>
-    <div class="bg-color-pin persianplum"></div>
-    <div class="bg-color-pin darkchocolate"></div>
-    <div class="bg-color-pin darkjunglegreen"></div>
-    <div class="bg-color-pin phthalogreen"></div>
-    <div class="bg-color-pin prussianblue"></div>
-    <div class="bg-color-pin darkblue"></div>
-    <div class="bg-color-pin oxfordblue"></div>
-    <div class="bg-color-pin darkoxfordblue"></div>
-    <div class="bg-color-pin darkpurple"></div>
-  </div>
 </div>
 

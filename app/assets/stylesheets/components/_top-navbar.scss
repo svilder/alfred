@@ -5,7 +5,7 @@
 }
 
 .logo {
-  margin: 16px;
+  margin: 24px 16px 0 16px;
 }
 
 .top-menu {
@@ -16,11 +16,11 @@
 }
 
 .menu-item {
-  width: 80px;
-  height: 80px;
+  width: 88px;
+  height: 88px;
   border: solid 0;
   border-color: black black $body-bg black;
-  margin: 20px 16px 16px 16px;
+  margin: 32px 8px 0 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,65 +36,4 @@ a.active {
   border-radius: 16px 16px 0 0;
   padding-bottom: 4px;
   border-bottom-length: 80px;
-}
-
-.bg-list {
-  display: flex;
-  position: absolute;
-  right: 0;
-}
-
-.bg-color-pin {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  margin: 4px;
-  border: 1px solid $gray;
-  cursor: pointer;
-  &:hover {
-    width: 32px;
-    height: 32px;
-    border-width: 3px;
-    transition: all 0.3s ease-out;
-  }
-}
-
-.claret {
-  background-color: $claret;
-}
-
-.persianplum {
-  background-color: $persianplum;
-}
-
-.darkchocolate {
-  background-color: $darkchocolate;
-}
-
-.darkjunglegreen {
-  background-color: $darkjunglegreen;
-}
-
-.phthalogreen {
-  background-color: $phthalogreen;
-}
-
-.prussianblue {
-  background-color: $prussianblue;
-}
-
-.darkblue {
-  background-color: $darkblue;
-}
-
-.oxfordblue {
-  background-color: $oxfordblue;
-}
-
-.darkoxfordblue {
-  background-color: $darkoxfordblue;
-}
-
-.darkpurple {
-  background-color: $darkpurple;
 }

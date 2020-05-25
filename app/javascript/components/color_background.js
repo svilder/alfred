@@ -1,6 +1,7 @@
 const colorBackground = () => {
   const colorPins = document.querySelectorAll(".bg-color-pin");
   const topBar = document.querySelector(".top-bar");
+  const boxes = document.querySelectorAll(".box");
   const bodyColor = document.querySelector("body");
   const colors = {
     claret:          '#580C1F',
@@ -14,46 +15,41 @@ const colorBackground = () => {
     darkoxfordblue:  '#000434',
     darkpurple:      '#261132'
   }
-  bodyColor.style.backgroundColor = colors.darkblue;
-  topBar.style.backgroundColor = colors.darkblue;
 
-  const changeColor = (pin) => {
+  const changeColor = (color) => {
+    bodyColor.style.backgroundColor = color;
+    if(topBar) { topBar.style.backgroundColor = color; };
+    boxes.forEach(box => box.style.backgroundColor = color);
+  }
+
+  const selectColor = (pin) => {
     const color = pin.target.classList[1];
 
     if(color === "claret") {
-      bodyColor.style.backgroundColor = colors.claret;
-      topBar.style.backgroundColor = colors.claret;
+      changeColor(colors.claret);
     } else if(color === "persianplum") {
-      bodyColor.style.backgroundColor = colors.persianplum;
-      topBar.style.backgroundColor = colors.persianplum;
+      changeColor(colors.persianplum);
     } else if(color === "darkchocolate") {
-      bodyColor.style.backgroundColor = colors.darkchocolate;
-      topBar.style.backgroundColor = colors.darkchocolate;
+      changeColor(colors.darkchocolate);
     } else if(color === "darkjunglegreen") {
-      bodyColor.style.backgroundColor = colors.darkjunglegreen;
-      topBar.style.backgroundColor = colors.darkjunglegreen;
+      changeColor(colors.darkjunglegreen);
     } else if(color === "phthalogreen") {
-      bodyColor.style.backgroundColor = colors.phthalogreen;
-      topBar.style.backgroundColor = colors.phthalogreen;
+      changeColor(colors.phthalogreen);
     } else if(color === "prussianblue") {
-      bodyColor.style.backgroundColor = colors.prussianblue;
-      topBar.style.backgroundColor = colors.prussianblue;
+      changeColor(colors.prussianblue);
     } else if(color === "oxfordblue") {
-      bodyColor.style.backgroundColor = colors.oxfordblue;
-      topBar.style.backgroundColor = colors.oxfordblue;
+      changeColor(colors.oxfordblue);
     } else if(color === "darkoxfordblue") {
-      bodyColor.style.backgroundColor = colors.darkoxfordblue;
-      topBar.style.backgroundColor = colors.darkoxfordblue;
+      changeColor(colors.darkoxfordblue);
     } else if(color === "darkpurple") {
-      bodyColor.style.backgroundColor = colors.darkpurple;
-      topBar.style.backgroundColor = colors.darkpurple;
+      changeColor(colors.darkpurple);
     } else {
-      bodyColor.style.backgroundColor = colors.darkblue;
-      topBar.style.backgroundColor = colors.darkblue;
+      changeColor(colors.darkblue);
     }
   }
 
-  colorPins.forEach(pin => pin.addEventListener("mouseover", changeColor));
+  changeColor(colors.darkblue);
+  colorPins.forEach(pin => pin.addEventListener("mouseover", selectColor));
 }
 
 export { colorBackground };
