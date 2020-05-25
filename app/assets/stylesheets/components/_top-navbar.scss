@@ -51,6 +51,12 @@ a.active {
   margin: 4px;
   border: 1px solid $gray;
   cursor: pointer;
+  &:hover {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+    transition: all 0.3s ease-out;
+  }
 }
 
 .claret {
