@@ -7,6 +7,7 @@ version: "4.1"
 
 environment:
   COMPOSE_EXT: development
+  COMPOSE_EXT: test
 
 compose:
   files:
@@ -91,11 +92,11 @@ interaction:
     command: psql -h postgres -U postgres
 
 provision:
-  - compose down --volumes
-  - compose up -d postgres redis
-  - compose up -d --build app
+  - docker-compose down --volumes
+  - docker-compose up -d postgres redis
+  - docker-compose up -d --build app
   - rm -rf Gemfile.lock
   - dip bundle install
   - dip yarn install
   - dip rails db:prepare
-  # - dip up -d
+  - dip up -d

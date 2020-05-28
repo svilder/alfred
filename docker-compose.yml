@@ -8,11 +8,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        RUBY_VERSION: "2.6.5"
+        RUBY_VERSION: "2.6.3"
         PG_MAJOR: "11"
         NODE_MAJOR: "11"
-        YARN_VERSION: "1.22.4"
-        BUNDLER_VERSION: "2.1.0"
+        YARN_VERSION: "1.21.1"
+        BUNDLER_VERSION: "2.1.4"
     image: alfred:1.0
     tmpfs:
       - /tmp
@@ -28,6 +28,7 @@ services:
     environment:
       - NODE_ENV=development
       - RAILS_ENV=${RAILS_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-test}
       - REDIS_URL=redis://redis:6379/
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432
       - BOOTSNAP_CACHE_DIR=/bundle/bootsnap
