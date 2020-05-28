@@ -1,6 +1,9 @@
 const colorBackground = () => {
   const colorPins = document.querySelectorAll(".bg-color-pin");
-  const bodyColor = document.querySelector("html");
+  const topBar = document.querySelector(".top-bar");
+  const boxes = document.querySelectorAll(".box");
+  const bodyColor = document.querySelector("body");
+
   const colors = {
     claret:          '#580C1F',
     persianplum:     '#74121D',
@@ -13,23 +16,41 @@ const colorBackground = () => {
     darkoxfordblue:  '#000434',
     darkpurple:      '#261132'
   }
-  bodyColor.style.backgroundColor = colors.darkblue;
 
-  const changeColor = (pin) => {
+  const changeColor = (color) => {
+    bodyColor.style.backgroundColor = color;
+    if(topBar) { topBar.style.backgroundColor = color; };
+    boxes.forEach(box => box.style.backgroundColor = color);
+  }
+
+  const selectColor = (pin) => {
     const color = pin.target.classList[1];
-    console.log(colors.value);
 
     if(color === "claret") {
-      bodyColor.style.backgroundColor = colors.claret;
-    }
-    else if(color === "persianplum") {
-      bodyColor.style.backgroundColor = colors.persianplum;
+      changeColor(colors.claret);
+    } else if(color === "persianplum") {
+      changeColor(colors.persianplum);
+    } else if(color === "darkchocolate") {
+      changeColor(colors.darkchocolate);
+    } else if(color === "darkjunglegreen") {
+      changeColor(colors.darkjunglegreen);
+    } else if(color === "phthalogreen") {
+      changeColor(colors.phthalogreen);
+    } else if(color === "prussianblue") {
+      changeColor(colors.prussianblue);
+    } else if(color === "oxfordblue") {
+      changeColor(colors.oxfordblue);
+    } else if(color === "darkoxfordblue") {
+      changeColor(colors.darkoxfordblue);
+    } else if(color === "darkpurple") {
+      changeColor(colors.darkpurple);
     } else {
-      bodyColor.style.backgroundColor = colors.darkblue;
+      changeColor(colors.darkblue);
     }
   }
 
-  colorPins.forEach(pin => pin.addEventListener("mouseover", changeColor));
+  changeColor(colors.darkblue);
+  colorPins.forEach(pin => pin.addEventListener("mouseover", selectColor));
 }
 
 export { colorBackground };

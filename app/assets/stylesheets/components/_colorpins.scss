@@ -1,0 +1,62 @@
+.bg-list {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.bg-color-pin {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 4px;
+  border: 1px solid $gray;
+  cursor: pointer;
+  z-index: 4;
+  &:hover {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.claret {
+  background-color: $claret;
+}
+
+.persianplum {
+  background-color: $persianplum;
+}
+
+.darkchocolate {
+  background-color: $darkchocolate;
+}
+
+.darkjunglegreen {
+  background-color: $darkjunglegreen;
+}
+
+.phthalogreen {
+  background-color: $phthalogreen;
+}
+
+.prussianblue {
+  background-color: $prussianblue;
+}
+
+.darkblue {
+  background-color: $darkblue;
+}
+
+.oxfordblue {
+  background-color: $oxfordblue;
+}
+
+.darkoxfordblue {
+  background-color: $darkoxfordblue;
+}
+
+.darkpurple {
+  background-color: $darkpurple;
+}

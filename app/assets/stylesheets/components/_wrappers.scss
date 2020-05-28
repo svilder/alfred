@@ -1,5 +1,5 @@
 .main-wrapper {
-  margin: 100px 72px 16px 72px;
+  margin: 128px 72px 16px 72px;
 }
 
 .margin-right {
@@ -7,7 +7,7 @@
 }
 
 .home-wrapper {
-  background-color: $darkblue;
+  background-color: $body-bg;
   width: 100vw;
   height: 100vh;
   color: $gray;
@@ -27,5 +27,45 @@
 @media (max-width: 768px) {
   .grid-3fr-wrapper {
     grid-template-columns: 1fr;
+  }
+  .home-wrapper > .tools {
+    display: none;
+  }
+  .home-wrapper > .home-image {
+    border: solid 4px black;
+  }
+  .main-wrapper {
+    margin: 96px 48px 16px 48px;
+  }
+  .menu-item img,
+  .logo img {
+    width: 24px;
+    height: 24px;
+  }
+  .menu-item {
+    width: 48px;
+    height: 48px;
+    margin: 40px 0 0 0;
+  }
+  .top-bar {
+    height: 88px;
+  }
+  .logo {
+    margin: 40px 16px 0 16px;
+  }
+  .tools-icon {
+    width: 48px;
+    height: 48px;
+    top: 76px;
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+  .main-wrapper > .missions-grid {
+    display: none;
+  }
+  .main-wrapper > .mobile-version {
+    display: block;
   }
 }
