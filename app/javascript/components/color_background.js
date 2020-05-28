@@ -3,6 +3,7 @@ const colorBackground = () => {
   const topBar = document.querySelector(".top-bar");
   const boxes = document.querySelectorAll(".box");
   const bodyColor = document.querySelector("body");
+
   const colors = {
     claret:          '#580C1F',
     persianplum:     '#74121D',

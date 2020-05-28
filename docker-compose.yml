@@ -1,0 +1,99 @@
+version: "3.4"
+
+# General config for runner, rails, sidekiq, webpacker
+# Magic from https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development
+services:
+  app: &app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: "2.6.3"
+        PG_MAJOR: "11"
+        NODE_MAJOR: "11"
+        YARN_VERSION: "1.21.1"
+        BUNDLER_VERSION: "2.1.4"
+    image: alfred:1.0
+    tmpfs:
+      - /tmp
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - rails_cache:/app/tmp/cache
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+      - .psqlrc:/root/.psqlrc:ro
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-test}
+      - REDIS_URL=redis://redis:6379/
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432
+      - BOOTSNAP_CACHE_DIR=/bundle/bootsnap
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - WEB_CONCURRENCY=1
+      - HISTFILE=/app/log/.bash_history
+      - PSQL_HISTFILE=/app/log/.psql_history
+      - EDITOR=vi
+
+  rails:
+    <<: *app
+    command:
+      - "bash"
+      - "-c"
+      - >
+        rm -f /app/tmp/pids/server.pid &&
+        bundle exec rails server -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+
+  sidekiq:
+    <<: *app
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    depends_on:
+      - postgres
+      - redis
+
+  webpacker:
+    <<: *app
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+
+  postgres:
+    image: postgres:11.1
+    volumes:
+      - .psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - ./log:/root/log:cached
+    environment:
+      - PSQL_HISTFILE=/root/log/.psql_history
+    ports:
+      - 5432
+
+  redis:
+    image: redis:4.0.14-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+
+volumes:
+  postgres:
+  redis:
+  bundle:
+  node_modules:
+  rails_cache:
+  packs:

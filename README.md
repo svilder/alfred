@@ -1,4 +1,4 @@
-##Alfred takes notes
+# Alfred takes notes
 
 is my professionnal assistant. I take notes on my projects, different tech I use and learn, keep track with my to dos, objectives pinned and simple post it notes, I can compare my missions on a board, calculate my TJM rate net revenu, chronometer my time on a task, and check if a number is really part of the rule of eight.
 
