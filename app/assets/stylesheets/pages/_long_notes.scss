@@ -8,4 +8,9 @@
 
 .long_notes-wrapper {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.long_note {
+  padding: 16px;
 }
