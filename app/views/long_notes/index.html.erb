@@ -10,7 +10,28 @@
 </div>
 
 <div class="long_notes-wrapper">
-  <% @long_notes.each do |long_note|%>
+  <% @long_notes.first(5).each do |long_note|%>
+    <div class="long_note">
+      <%= link_to long_note_path(long_note) do %>
+        <p>
+          <strong>
+            <%= long_note.updated_at.day %>
+            of
+            <%= I18n.t('date.month_names')[long_note.updated_at.month] %>
+            <%= long_note.updated_at.year %> :
+          </strong>
+        <br>
+          <em><%= long_note.title %></em>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+----
+
+<div class="long_notes-wrapper">
+  <% @long_notes.last(15).each do |long_note|%>
     <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
         <p>
