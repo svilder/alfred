@@ -10,7 +10,7 @@
 </div>
 
 <div class="long_notes-wrapper">
-  <% @long_notes.first(5).each do |long_note|%>
+  <% @long_notes.take(5).each do |long_note|%>
     <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
         <p>
@@ -31,7 +31,7 @@
 ----
 
 <div class="long_notes-wrapper">
-  <% @long_notes.last(15).each do |long_note|%>
+  <% @long_notes.drop(5).each do |long_note|%>
     <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
         <p>

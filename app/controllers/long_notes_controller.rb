@@ -3,6 +3,9 @@ class LongNotesController < ApplicationController
 
   def index
     @long_notes = policy_scope(LongNote).order(updated_at: :desc)
+
+    # @long_notes_five = @long_notes.first(5)
+    # @long_notes.first(5).map {|note| note.pop}
   end
 
   def show
