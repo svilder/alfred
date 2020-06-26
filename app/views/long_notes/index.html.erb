@@ -1,23 +1,24 @@
-<div class="title">
-  <h4>Long Notes</h4>
-  <div class="action">
-    <% if policy(LongNote).create? %>
-      <%= link_to new_long_note_path do %>
-        <i class="far fa-plus-square"></i>
+<div class="flex-wrap mb-5">
+  <div class="title">
+    <h4>Long Notes</h4>
+    <div class="action">
+      <% if policy(LongNote).create? %>
+        <%= link_to new_long_note_path do %>
+          <i class="far fa-plus-square"></i>
+        <% end %>
       <% end %>
+    </div>
+  </div>
+  <div class="">
+    <%= form_tag long_notes_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Entrer un mot clé"
+      %>
+      <%= submit_tag "Chercher", class: "btn button" %>
     <% end %>
   </div>
-</div>
-
-<div class="search">
-  <%= form_tag long_notes_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-bar",
-      placeholder: "Chercher parmi les notes"
-    %>
-    <%= submit_tag "Chercher", class: "btn button" %>
-  <% end %>
 </div>
 
 <div class="long_notes-wrapper">

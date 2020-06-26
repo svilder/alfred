@@ -28,6 +28,13 @@
   display: flex;
 }
 
+.flex-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   .grid-3fr-wrapper {
     grid-template-columns: 1fr;
