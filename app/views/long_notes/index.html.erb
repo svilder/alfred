@@ -16,12 +16,13 @@
       class: "search-bar",
       placeholder: "Chercher parmi les notes"
     %>
-    <%= submit_tag "Chercher", class: "button" %>
+    <%= submit_tag "Chercher", class: "btn button" %>
   <% end %>
+</div>
 
 <div class="long_notes-wrapper">
   <p><%= @message %></p>
-  <% @long_notes.take(5).each do |long_note|%>
+  <% @long_notes.each do |long_note|%>
     <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
         <p>
