@@ -53,6 +53,12 @@
 
 .text-field {
   margin: 8px;
+  input {
+    width: 68px;
+    background-color: white;
+    border-radius: 16px;
+    border: black;
+  }
 }
 
 .field,
@@ -63,13 +69,6 @@
 
 .result p {
   margin: 0;
-}
-
-input {
-  width: 68px;
-  background-color: white;
-  border-radius: 16px;
-  border: black;
 }
 
 .form-control {
