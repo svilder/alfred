@@ -1,0 +1,24 @@
+<div class="title">
+  <h4>Bookmarks</h4>
+    <div class="action">
+      <%# if policy(Bookmark).create? %>
+        <%= link_to new_bookmark_path do %>
+          <i class="far fa-plus-square"></i>
+        <% end %>
+      <%# end %>
+    </div>
+  </div>
+
+  <div class="bookmarks-wrapper">
+    <% @bookmarks.take(5).each do |bookmark|%>
+      <div class="bookmark">
+        <%= link_to bookmark_path(bookmark) do %>
+          <p>
+            <%= link_to bookmark.title, bookmark.url %>
+            <br>
+            <%= bookmark.description %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
