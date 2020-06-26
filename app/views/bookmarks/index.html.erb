@@ -19,7 +19,7 @@
   </div>
   <div class="bookmarks">
     <div class="">
-      <% @bookmarks.each do |bookmark| if @bookmarks %>
+      <% @bookmarks.each do |bookmark| if @bookmarks && !@bookmarks.nil? %>
         <div class="bookmark">
           <p class="mr-3">
             <em><%= link_to bookmark.title, bookmark.url, target: "_blank" %></em>
