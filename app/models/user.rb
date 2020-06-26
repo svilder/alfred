@@ -9,6 +9,5 @@ class User < ApplicationRecord
   has_many :objectives
   has_many :missions
   has_many :long_notes
-
-  # validates :username, presence: true
+  has_many :bookmarks
 end

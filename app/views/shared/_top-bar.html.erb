@@ -11,6 +11,21 @@
       <% end %>
     </li>
     <li>
+      <%= link_to long_notes_path, class: "menu-item #{"active" if params[:controller] == "long_notes" }" do %>
+        <%= image_tag "notebook_gray.png", alt: "notebook" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to bookmarks_path, class: "menu-item #{"active" if params[:controller] == "bookmarks" }" do %>
+        <%= image_tag "hyperlink_gray.png", alt: "bookmark" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to short_notes_path, class: "menu-item #{"active" if params[:controller] == "short_notes" }" do %>
+        <%= image_tag "post-it_gray.png", alt: "post-it" %>
+      <% end %>
+    </li>
+    <li>
       <%= link_to objectives_path, class: "menu-item #{"active" if params[:controller] == "objectives" }" do %>
         <%= image_tag "mission_gray.png", alt: "mission" %>
       <% end %>
@@ -18,16 +33,6 @@
     <li>
       <%= link_to missions_path, class: "menu-item #{"active" if params[:controller] == "missions" }" do %>
         <%= image_tag "sketchbook_gray.png", alt: "sketchbook" %>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to long_notes_path, class: "menu-item #{"active" if params[:controller] == "long_notes" }" do %>
-        <%= image_tag "notebook_gray.png", alt: "notebook" %>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to short_notes_path, class: "menu-item #{"active" if params[:controller] == "short_notes" }" do %>
-        <%= image_tag "post-it_gray.png", alt: "post-it" %>
       <% end %>
     </li>
   </ul>
