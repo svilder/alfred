@@ -9,7 +9,18 @@
   </div>
 </div>
 
+<div class="search">
+  <%= form_tag long_notes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-bar",
+      placeholder: "Chercher parmi les notes"
+    %>
+    <%= submit_tag "Chercher", class: "button" %>
+  <% end %>
+
 <div class="long_notes-wrapper">
+  <p><%= @message %></p>
   <% @long_notes.take(5).each do |long_note|%>
     <div class="long_note">
       <%= link_to long_note_path(long_note) do %>
