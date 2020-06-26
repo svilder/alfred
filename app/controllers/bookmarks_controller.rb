@@ -2,13 +2,14 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
   def index
-    @message = "Vous n'avez pas encore créé de bookmark." if @bookmarks.count == 0 || @bookmarks.nil?
-    if params[:category]
-      @bookmarks = policy_scope(Bookmark).where(category: params[:category]).order(created_at: :desc)
-    else
-      @bookmarks = policy_scope(Bookmark).order(created_at: :desc)
+    if !@bookmarks.nil?
+      if params[:category]
+        @bookmarks = policy_scope(Bookmark).where(category: params[:category]).order(created_at: :desc)
+      else
+        @bookmarks = policy_scope(Bookmark).order(created_at: :desc)
+      end
+      @categories = policy_scope(Bookmark).map { |bookmark| bookmark.category if bookmark.category }
     end
-    @categories = policy_scope(Bookmark).map { |bookmark| bookmark.category if bookmark.category }
   end
 
   def new
