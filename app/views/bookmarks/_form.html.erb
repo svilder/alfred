@@ -1,0 +1,7 @@
+<%= simple_form_for @bookmark, remote: true do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :url %>
+  <%= f.input :category %>
+  <%= f.button :submit, class: "button" %>
+<% end %>

@@ -24,6 +24,10 @@
   flex-wrap: wrap;
 }
 
+.one-quarter-wrapper {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .grid-3fr-wrapper {
     grid-template-columns: 1fr;

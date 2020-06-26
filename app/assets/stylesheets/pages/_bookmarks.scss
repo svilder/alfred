@@ -1,0 +1,20 @@
+.bookmarks {
+  position: absolute;
+  left: 232px;
+  margin-right: 72px;
+}
+
+.bookmark {
+  display: flex;
+  margin: 16px;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  border-right: 1px solid $gray;
+  height: calc(100vh - 172px);
+  position: fixed;
+  top: 172px;
+}

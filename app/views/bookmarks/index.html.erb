@@ -1,0 +1,49 @@
+<div class="title">
+  <h4>Bookmarks</h4>
+  <div class="action">
+    <% if policy(Bookmark).create? %>
+      <%= link_to new_bookmark_path do %>
+        <i class="far fa-plus-square"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="one-quarter-wrapper">
+  <div class="side-bar">
+    <p>Trier par catégorie : </p>
+    <%= link_to "Toutes catégories", bookmarks_path, class: "link" %>
+    <% @categories.uniq.each do |category| %>
+      <%= link_to category, bookmarks_path(category: category), class: "link" %>
+    <% end %>
+  </div>
+  <div class="bookmarks">
+    <div class="">
+      <% @bookmarks.each do |bookmark|%>
+        <div class="bookmark">
+          <p class="mr-3">
+            <em><%= link_to bookmark.title, bookmark.url, target: "_blank" %></em>
+          </p>
+          <div class="card">
+            <p><%= bookmark.description %></p>
+          </div>
+          <div class="action-box">
+            <div class="action">
+              <% if policy(bookmark).edit? %>
+                <%= link_to edit_bookmark_path(bookmark) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="action">
+              <% if policy(bookmark).destroy? %>
+                <%= link_to bookmark, method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
