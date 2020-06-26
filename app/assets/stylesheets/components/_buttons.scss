@@ -1,6 +1,10 @@
 .button {
   background-color: $yellow;
-  width: 30%;
+  color: black;
+  &:hover {
+    background-color: $gray;
+    color: black;
+  }
 }
 
 #user_remember_me {

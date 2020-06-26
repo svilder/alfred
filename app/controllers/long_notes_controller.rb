@@ -2,10 +2,17 @@ class LongNotesController < ApplicationController
   before_action :set_long_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @long_notes = policy_scope(LongNote).order(updated_at: :desc)
-
-    # @long_notes_five = @long_notes.first(5)
-    # @long_notes.first(5).map {|note| note.pop}
+    @message = ""
+    if params[:query].present?
+      sql_query = " \
+        long_notes.description ILIKE :query \
+        OR long_notes.title ILIKE :query \
+      "
+      @long_notes = policy_scope(LongNote).where(sql_query, query: "%#{params[:query]}%").sort
+      @message = "⚠️ Aucune note ne correspond à votre recherche. ⚠️" if @long_notes.count == 0
+    else
+      @long_notes = policy_scope(LongNote).order(updated_at: :desc)
+    end
   end
 
   def show
