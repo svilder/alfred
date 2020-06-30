@@ -5,10 +5,10 @@ class LongNotesController < ApplicationController
     @message = ""
     if params[:query].present?
       sql_query = <<-SQL
-        long_notes.description ILIKE :query
-        OR long_notes.title ILIKE :query
+        long_notes.description ILIKE :query \
+        OR long_notes.title ILIKE :query \
       SQL
-      @long_notes = policy_scope(LongNote).where(sql_query, query: "%#{params[:query]}%").sort
+      @long_notes = policy_scope(LongNote).where(sql_query, query: "%#{params[:query]}%")
       @message = "⚠️ Aucune note ne correspond à votre recherche. ⚠️" if @long_notes.count == 0
     else
       @long_notes = policy_scope(LongNote).order(updated_at: :desc)
