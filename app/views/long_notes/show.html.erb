@@ -9,6 +9,9 @@
     <em><%= @long_note.title %></em>
   </p>
   <p><%= @long_note.description %></p>
+  <%# @article.photos.each do |photo| %>
+    <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%# end %>
   <div class="action-box">
     <div class="action">
       <% if policy(@long_note).edit? %>
