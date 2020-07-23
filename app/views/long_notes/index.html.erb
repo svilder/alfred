@@ -36,6 +36,11 @@
         <br>
           <em><%= long_note.title %></em>
         </p>
+        <% if params[:query] %>
+          <p>
+            <%= long_note.description %>
+          </p>
+        <% end %>
       <% end %>
     </div>
   <% end %>

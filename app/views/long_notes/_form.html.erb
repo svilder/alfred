@@ -1,7 +1,10 @@
 <%= simple_form_for @long_note do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
   <%= f.input :title %>
   <%= f.label :description %>
   <%= f.rich_text_area :description %>
-  <%= f.input :images, as: :file, input_html: { multiple: true } %>
+  <%#= f.hidden :images, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: "button" %>
 <% end %>
