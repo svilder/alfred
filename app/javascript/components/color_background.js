@@ -30,6 +30,11 @@ const colorBackground = () => {
 
   }
 
+  const pickColorFromCookie = () => {
+    const cookies = document.cookie.split(";");
+
+  }
+
   const selectColor = (pin) => {
     const color = pin.target.classList[1];
 
