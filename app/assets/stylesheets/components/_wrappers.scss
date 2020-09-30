@@ -79,4 +79,9 @@
   .main-wrapper > .mobile-version {
     display: block;
   }
+  trix-toolbar {
+    position: sticky;
+    top: 88px;
+    z-index: 1;
+  }
 }

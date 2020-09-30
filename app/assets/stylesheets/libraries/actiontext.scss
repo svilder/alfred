@@ -9,6 +9,12 @@
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
 
+trix-toolbar {
+  position: sticky;
+  top: 116px;
+  z-index: 1;
+}
+
 trix-toolbar .trix-button {
   background: white;
   background-color: white;
@@ -42,4 +48,3 @@ trix-toolbar .trix-button {
     }
   }
 }
-
