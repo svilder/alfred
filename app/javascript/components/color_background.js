@@ -21,6 +21,18 @@ const colorBackground = () => {
     bodyColor.style.backgroundColor = color;
     if(topBar) { topBar.style.backgroundColor = color; };
     boxes.forEach(box => box.style.backgroundColor = color);
+
+
+    //document.cookie = `cookieBackgroundColor=${color}`;
+    //console.log("cookie");
+    //console.log(document.cookie);
+    // console.log(cookie.cookieBackgroundColor);
+
+  }
+
+  const pickColorFromCookie = () => {
+    const cookies = document.cookie.split(";");
+
   }
 
   const selectColor = (pin) => {
