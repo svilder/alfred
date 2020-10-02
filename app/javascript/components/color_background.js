@@ -22,12 +22,9 @@ const colorBackground = () => {
     if(topBar) { topBar.style.backgroundColor = color; };
     boxes.forEach(box => box.style.backgroundColor = color);
 
-
-    //document.cookie = `cookieBackgroundColor=${color}`;
-    //console.log("cookie");
-    //console.log(document.cookie);
-    // console.log(cookie.cookieBackgroundColor);
-
+    document.cookie = `cookieBackgroundColor=${color}`;
+    console.log("cookie");
+    console.log(document.cookie);
   }
 
   const pickColorFromCookie = () => {
@@ -62,7 +59,7 @@ const colorBackground = () => {
   }
 
   changeColor(colors.darkblue);
-  colorPins.forEach(pin => pin.addEventListener("mouseover", selectColor));
+  colorPins.forEach(pin => pin.addEventListener("click", selectColor));
 }
 
 export { colorBackground };
