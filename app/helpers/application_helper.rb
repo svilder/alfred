@@ -42,9 +42,6 @@ module ApplicationHelper
       'F' => 15
     }
 
-    p r
-    p g
-    p b
-
+    return hex_values.key(r / 16) + hex_values.key(r % 16) + hex_values.key(g / 16) + hex_values.key(g % 16) + hex_values.key(b / 16) + hex_values.key(b % 16)
   end
 end
