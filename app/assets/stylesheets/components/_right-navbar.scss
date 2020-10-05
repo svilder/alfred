@@ -43,12 +43,15 @@
 
 .box {
   background-color: transparent;
-  padding: 16px 32px;
+  padding: 16px;
   border-radius: 16px;
   border: solid 4px black;
   margin: 8px;
   width: 176px;
   height: 176px;
+  p {
+    margin: 0;
+  }
 }
 
 .text-field {
@@ -59,6 +62,10 @@
     border-radius: 16px;
     border: black;
   }
+}
+
+.rgb input {
+  width: 44px;
 }
 
 .field,
