@@ -64,9 +64,20 @@
   }
 }
 
-.rgb input {
-  width: 44px;
+.rgb {
+  margin-bottom: 0;
+  input {
+    width: 44px;
+  }
 }
+
+.color-hex {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
 
 .field,
 .result {
