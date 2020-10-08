@@ -22,22 +22,24 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 
-import { calculPercent } from "../components/calcul_percent";
+// import { calculPercent } from "../components/calcul_percent";
 import { ruleOfEight } from "../components/rule_of_eight";
 import { clock } from "../components/clock";
 import { chrono } from "../components/chrono";
 import { toggleTools } from "../components/toggle_tools";
 import { dragToDos } from "../components/drag_to_dos";
 import { colorBackground } from "../components/color_background";
+import { rgbToHex } from "../components/rgb_to_hex";
 
 document.addEventListener("turbolinks:load", function() {
-  calculPercent();
+  // calculPercent();
   ruleOfEight();
   clock();
   chrono();
   toggleTools();
   dragToDos();
   colorBackground();
+  rgbToHex();
 })
 
 // Stimulus
