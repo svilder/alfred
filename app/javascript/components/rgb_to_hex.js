@@ -4,7 +4,7 @@ const rgbToHex = () => {
   const inputB = document.querySelector('#B');
   const button = document.querySelector('#go-hex');
   const result = document.querySelector('#result-hex');
-  const hex_values = {
+  const hex_valuesee = {
     0:  '0',
     1:  '1',
     2:  '2',
@@ -23,9 +23,13 @@ const rgbToHex = () => {
     15: 'F'
   }
 
+  const hex_values = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+
   const insertResult = (hex_value) => {
     result.innerHTML = "";
-    result.insertAdjacentHTML('beforeend', `<p><i class="fas fa-long-arrow-alt-right"></i> ${hex_value}</p>`);
+    result.insertAdjacentHTML('beforeend',
+      `<div class="color-hex" style="background-color: ${hex_value}"></div>${hex_value}</div>`
+    );
   };
 
   const is_number_a_rgb_value = (n) => {
@@ -43,11 +47,13 @@ const rgbToHex = () => {
     const r = is_number_a_rgb_value(inputR.value);
     const g = is_number_a_rgb_value(inputG.value);
     const b = is_number_a_rgb_value(inputB.value);
-    console.log(r / 16);
-    console.log(g);
-    console.log(b);
-    const result = "#" + (r / 16) + (r % 16) + (g / 16) + (g % 16) + (b / 16) + (b % 16)
-
+    const result = "#" +
+      hex_values[Math.floor(r / 16)] +
+      hex_values[(r % 16)] +
+      hex_values[Math.floor(g / 16)] +
+      hex_values[(g % 16)] +
+      hex_values[Math.floor(b / 16)] +
+      hex_values[(b % 16)];
     insertResult(result);
   };
 
