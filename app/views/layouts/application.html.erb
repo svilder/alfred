@@ -36,7 +36,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <% unless action_name == "home" %>
+    <% unless action_name == "home" || action_name == "share" %>
       <%= render 'shared/colorpins' %>
       <div class="main-wrapper">
         <%= yield %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/share', to: 'pages#share'
 
   resources :to_do_lists, except: [ :show ] do
     resources :tasks, only: [ :new, :create ]
