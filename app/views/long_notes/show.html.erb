@@ -1,23 +1,30 @@
 <div class="card">
-  <p>
-    <strong>
-      <%= @long_note.created_at.day %>
-      of
-      <%= I18n.t('date.month_names')[@long_note.created_at.month] %>
-      <%= @long_note.created_at.year %> :
-    </strong>
-    <em><%= @long_note.title %></em>
-  </p>
-  <p><%= @long_note.description %></p>
-  <% @long_note.images.each do |image| %>
-    <%= cl_image_tag image.key, crop: :fill %>
-  <% end %>
+  <div class="note-content">
+    <p>
+      <strong>
+        <%= @long_note.created_at.day %>
+        of
+        <%= I18n.t('date.month_names')[@long_note.created_at.month] %>
+        <%= @long_note.created_at.year %> :
+      </strong>
+      <em><%= @long_note.title %></em>
+    </p>
+    <p><%= @long_note.description %></p>
+    <% @long_note.images.each do |image| %>
+      <%= cl_image_tag image.key, crop: :fill %>
+    <% end %>
+  </div>
   <div class="action-box">
     <div class="action">
       <% if policy(@long_note).edit? %>
         <%= link_to edit_long_note_path(@long_note) do %>
           <i class="far fa-edit"></i>
         <% end %>
+      <% end %>
+    </div>
+    <div class="action">
+      <%= link_to "/", id: "share" do %>
+        <i class="fas fa-share"></i>
       <% end %>
     </div>
     <div class="action">

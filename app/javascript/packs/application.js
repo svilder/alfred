@@ -30,6 +30,7 @@ import { toggleTools } from "../components/toggle_tools";
 import { dragToDos } from "../components/drag_to_dos";
 import { colorBackground } from "../components/color_background";
 import { rgbToHex } from "../components/rgb_to_hex";
+import { exportNote } from "../components/export_note";
 
 document.addEventListener("turbolinks:load", function() {
   // calculPercent();
@@ -40,6 +41,7 @@ document.addEventListener("turbolinks:load", function() {
   dragToDos();
   colorBackground();
   rgbToHex();
+  exportNote();
 })
 
 // Stimulus
