@@ -25,37 +25,37 @@
       </p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">CLIENT</p>
     <% @missions.each do |mission|%>
       <p><%= mission.client_name %></p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">TITLE</p>
     <% @missions.each do |mission|%>
       <p><%= mission.title %></p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">DESCRIPTION</p>
     <% @missions.each do |mission|%>
       <p><%= mission.description %></p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">TIME SPENT</p>
     <% @missions.each do |mission|%>
       <p><em><i class="fas fa-long-arrow-alt-right"></i><%= mission.time_spent %></em></p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">TOTAL €</p>
     <% @missions.each do |mission|%>
       <p><strong><%= mission.money_earned %></strong></p>
     <% end %>
   </div>
-  <div class="card grid-rows">
+  <div class="my-card grid-rows">
     <p class="headers">NOTES</p>
     <% @missions.each do |mission|%>
       <p><%= mission.note %></p>
