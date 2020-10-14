@@ -11,7 +11,7 @@
 
 <div class="objectives-wrapper">
   <% @objectives.each do |objectif|%>
-    <div class="card objectif">
+    <div class="my-card objectif">
       <p class="small">
         Created the <%= objectif.created_at.day %>th of
         <%= I18n.t('date.month_names')[objectif.created_at.month] %>
