@@ -9,10 +9,15 @@
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
 
-.trix-button--icon-underline .fas {
+.trix-button--my-icon .fas {
   padding: 5px 8px 4px 8px;
   font-weight: bold;
   font-size: medium;
+}
+
+.trix-content pre {
+  background-color: rgb(40, 41, 35);
+  color: rgb(254, 150, 0);
 }
 
 trix-toolbar {
