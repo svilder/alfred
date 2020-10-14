@@ -15,7 +15,7 @@ const trixToolbarUnderlineButton = () => {
   addEventListener("trix-initialize", function(event) {
     const buttonHTML = '<button type="button" class="trix-button trix-button--icon-underline" data-trix-attribute="underline" title="Underline" tabindex="-1"><i class="fas fa-underline"></i></button>'
 
-    event.target.toolbarElement.querySelector(".trix-button-group").insertAdjacentHTML("beforeend", buttonHTML)
+    event.target.toolbarElement.querySelector(".trix-button--icon-italic").insertAdjacentHTML("afterend", buttonHTML)
   });
 }
 
