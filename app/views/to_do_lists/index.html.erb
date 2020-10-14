@@ -11,7 +11,7 @@
 
 <div class="grid-3fr-wrapper todos-container">
   <% @to_do_lists.each do |list|%>
-    <div class="card todos">
+    <div class="my-card todos">
       <progress
         value='<%= task_progress(list.tasks.count, list.tasks.where(status: true).count) %>'
         max="100">
