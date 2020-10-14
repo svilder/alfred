@@ -53,9 +53,6 @@ require("@rails/actiontext")
 const Trix  = require("trix")
 console.log("Config", Trix.config);
 
-// Trix.config.blockAttributes.heading2 = {
-//   tagName: 'h2'
-// }
 Trix.config.textAttributes.code1 = {
   tagName: 'pre'
 }
@@ -70,7 +67,6 @@ addEventListener("trix-initialize", function(event) {
 
   toolbar.querySelector(".trix-button--icon-italic").insertAdjacentHTML("afterend", buttonUnderlineHTML);
   toolbar.querySelector(".trix-button--icon-code").remove();
-  // console.log("buttonHTML", toolbar.querySelector(".trix-button--icon-code"));
   toolbar.querySelector(".trix-button--icon-quote").insertAdjacentHTML("afterend", buttonCodeHTML);
 });
 
