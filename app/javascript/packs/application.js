@@ -30,7 +30,6 @@ import { toggleTools } from "../components/toggle_tools";
 import { dragToDos } from "../components/drag_to_dos";
 import { colorBackground } from "../components/color_background";
 import { rgbToHex } from "../components/rgb_to_hex";
-// import { trixToolbarUnderlineButton } from "../components/trix_toolbar_underline_button";
 
 document.addEventListener("turbolinks:load", function() {
   // calculPercent();
@@ -41,7 +40,6 @@ document.addEventListener("turbolinks:load", function() {
   dragToDos();
   colorBackground();
   rgbToHex();
-  // trixToolbarUnderlineButton();
 })
 
 // Stimulus
@@ -53,6 +51,9 @@ require("@rails/actiontext")
 const Trix  = require("trix")
 console.log("Config", Trix.config);
 
+Trix.config.textAttributes.mark = {
+  tagName: 'mark'
+}
 Trix.config.textAttributes.code1 = {
   tagName: 'pre'
 }
@@ -64,10 +65,12 @@ addEventListener("trix-initialize", function(event) {
   const toolbar = event.target.toolbarElement;
   const buttonUnderlineHTML = '<button type="button" class="trix-button trix-button--my-icon" data-trix-attribute="underline" title="Underline" tabindex="-1"><i class="fas fa-underline"></i></button>';
   const buttonCodeHTML = '<button type="button" class="trix-button trix-button--my-icon" data-trix-attribute="code1" title="Code" tabindex="-1"><i class="fas fa-terminal"></i></button>';
+  const buttonMarkHTML = '<button type="button" class="trix-button trix-button--my-icon" data-trix-attribute="mark" title="Mark" tabindex="-1"><i class="fas fa-highlighter"></i></button>';
 
   toolbar.querySelector(".trix-button--icon-italic").insertAdjacentHTML("afterend", buttonUnderlineHTML);
   toolbar.querySelector(".trix-button--icon-code").remove();
   toolbar.querySelector(".trix-button--icon-quote").insertAdjacentHTML("afterend", buttonCodeHTML);
+  toolbar.querySelector(".trix-button--icon-heading-1").insertAdjacentHTML("afterend", buttonMarkHTML);
 });
 
 
