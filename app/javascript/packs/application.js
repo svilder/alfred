@@ -28,7 +28,7 @@ import { clock } from "../components/clock";
 import { chrono } from "../components/chrono";
 import { toggleTools } from "../components/toggle_tools";
 import { dragToDos } from "../components/drag_to_dos";
-import { colorBackground } from "../components/color_background";
+// import { colorBackground } from "../components/color_background";
 import { rgbToHex } from "../components/rgb_to_hex";
 
 document.addEventListener("turbolinks:load", function() {
@@ -38,7 +38,7 @@ document.addEventListener("turbolinks:load", function() {
   chrono();
   toggleTools();
   dragToDos();
-  colorBackground();
+  // colorBackground();
   rgbToHex();
 })
 

@@ -1,5 +1,7 @@
 <div class="bg-list">
-  <div class="bg-color-pin claret"></div>
+  <%= link_to edit_color_preference_path(color_preference: 'claret'), method: :patch do %>
+    <div class="bg-color-pin claret"></div>
+  <% end %>
   <div class="bg-color-pin persianplum"></div>
   <div class="bg-color-pin darkchocolate"></div>
   <div class="bg-color-pin darkjunglegreen"></div>
