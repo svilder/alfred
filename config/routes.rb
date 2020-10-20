@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :long_notes
   resources :short_notes
   resources :bookmarks
+  resources :posts
 end
