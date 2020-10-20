@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  patch 'edit_color_preference', to: 'users#edit_color_preference'
   root to: 'pages#home'
 
   resources :to_do_lists, except: [ :show ] do

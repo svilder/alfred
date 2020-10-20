@@ -1,12 +1,32 @@
 <div class="bg-list">
-  <div class="bg-color-pin claret"></div>
-  <div class="bg-color-pin persianplum"></div>
-  <div class="bg-color-pin darkchocolate"></div>
-  <div class="bg-color-pin darkjunglegreen"></div>
-  <div class="bg-color-pin phthalogreen"></div>
-  <div class="bg-color-pin prussianblue"></div>
-  <div class="bg-color-pin darkblue"></div>
-  <div class="bg-color-pin oxfordblue"></div>
-  <div class="bg-color-pin darkoxfordblue"></div>
-  <div class="bg-color-pin darkpurple"></div>
+  <%= link_to edit_color_preference_path(color_preference: 'claret'), method: :patch do %>
+    <div class="bg-color-pin claret"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'persianplum'), method: :patch do %>
+    <div class="bg-color-pin persianplum"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'darkchocolate'), method: :patch do %>
+    <div class="bg-color-pin darkchocolate"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'darkjunglegreen'), method: :patch do %>
+    <div class="bg-color-pin darkjunglegreen"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'phthalogreen'), method: :patch do %>
+    <div class="bg-color-pin phthalogreen"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'prussianblue'), method: :patch do %>
+    <div class="bg-color-pin prussianblue"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'darkblue'), method: :patch do %>
+    <div class="bg-color-pin darkblue"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'oxfordblue'), method: :patch do %>
+    <div class="bg-color-pin oxfordblue"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'darkoxfordblue'), method: :patch do %>
+    <div class="bg-color-pin darkoxfordblue"></div>
+  <% end %>
+  <%= link_to edit_color_preference_path(color_preference: 'darkpurple'), method: :patch do %>
+    <div class="bg-color-pin darkpurple"></div>
+  <% end %>
 </div>
