@@ -23,22 +23,24 @@ require("channels")
 import "bootstrap";
 
 // import { calculPercent } from "../components/calcul_percent";
+// import { colorBackground } from "../components/color_background";
 import { ruleOfEight } from "../components/rule_of_eight";
 import { clock } from "../components/clock";
 import { chrono } from "../components/chrono";
 import { toggleTools } from "../components/toggle_tools";
 import { dragToDos } from "../components/drag_to_dos";
-// import { colorBackground } from "../components/color_background";
 import { rgbToHex } from "../components/rgb_to_hex";
+import { colorPins } from "../components/color_pins";
 
 document.addEventListener("turbolinks:load", function() {
   // calculPercent();
+  // colorBackground();
+  colorPins();
   ruleOfEight();
   clock();
   chrono();
   toggleTools();
   dragToDos();
-  // colorBackground();
   rgbToHex();
 })
 
@@ -72,7 +74,3 @@ addEventListener("trix-initialize", function(event) {
   toolbar.querySelector(".trix-button--icon-quote").insertAdjacentHTML("afterend", buttonCodeHTML);
   toolbar.querySelector(".trix-button--icon-heading-1").insertAdjacentHTML("afterend", buttonMarkHTML);
 });
-
-
-
-
