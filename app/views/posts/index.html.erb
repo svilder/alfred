@@ -13,6 +13,10 @@
   <% @posts.each do |post|%>
     <div class="my-card post">
       <p><%= post.title %></p>
+      <%= post.updated_at.day %>
+      of
+      <%= I18n.t('date.month_names')[post.updated_at.month] %>
+      <%= post.updated_at.year %>
       <p><%= post.context %></p>
       <p><%= post.content %></p>
       <div class="action-box">
