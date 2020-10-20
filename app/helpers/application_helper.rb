@@ -1,19 +1,19 @@
 module ApplicationHelper
-
-  def color_preference
+  def color_preference_helper
     color_preferences = {
-      'claret':          '#580C1F',
-      'persianplum':     '#74121D',
-      'darkchocolate':   '#1E2019',
-      'darkjunglegreen': '#102012',
-      'phthalogreen':    '#1F3323',
-      'prussianblue':    '#2F394D',
-      'darkblue':        '#1A1B80',
-      'oxfordblue':      '#001C42',
-      'darkoxfordblue':  '#000434',
-      'darkpurple':      '#261132'
+      'claret' =>          '#580C1F',
+      'persianplum' =>     '#74121D',
+      'darkchocolate' =>   '#1E2019',
+      'darkjunglegreen' => '#102012',
+      'phthalogreen' =>    '#1F3323',
+      'prussianblue' =>    '#2F394D',
+      'darkblue' =>        '#1A1B80',
+      'oxfordblue' =>      '#001C42',
+      'darkoxfordblue' =>  '#000434',
+      'darkpurple' =>      '#261132'
     }
-    return current_user ? color_preferences[current_user.color_preference] : color_preferences['darkblue']
+    default_color = color_preferences['darkblue']
+    return current_user ? color_preferences[current_user.color_preference] : default_color
   end
 
   def task_progress(task_count, task_done_count)

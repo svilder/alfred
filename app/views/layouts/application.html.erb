@@ -35,7 +35,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-  <body style='background-color: <%= color_preference %>'>
+  <body style='background-color: <%= color_preference_helper %>'>
     <% unless action_name == "home" %>
       <%= render 'shared/colorpins' %>
       <div class="main-wrapper">
