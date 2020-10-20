@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :objectives
-  resources :missions
+  # resources :missions
   resources :long_notes
   resources :short_notes
   resources :bookmarks
+  resources :posts
 end

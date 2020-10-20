@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :missions
   has_many :long_notes
   has_many :bookmarks
+  has_many :posts
 end

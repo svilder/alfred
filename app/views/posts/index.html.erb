@@ -1,0 +1,65 @@
+<div class="title">
+  <h4 class="journal-title">Journal</h4>
+  <div class="action">
+    <% if policy(Post).create? %>
+      <%= link_to new_post_path do %>
+        <i class="far fa-plus-square"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="action">
+  <%= link_to "Voir la list des posts", "#list-of-posts" %>
+</div>
+
+
+<% @posts.each do |post|%>
+  <h3 class="mt-3"><%= post.title %></h3>
+  <div class="d-flex justify-content-between small">
+    <p>
+      <%= post.updated_at.day %>
+      of
+      <%= I18n.t('date.month_names')[post.updated_at.month] %>
+      <%= post.updated_at.year %>
+    </p>
+    <p><%= post.context %></p>
+  </div>
+  <div class="my-card post">
+    <p><%= post.content %></p>
+    <div class="action-box">
+      <div class="action">
+        <% if policy(post).edit? %>
+          <%= link_to edit_post_path(post) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="action">
+        <% if policy(post).destroy? %>
+          <%= link_to post, method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<br>
+<br>
+<div class="mt-5" id="list-of-posts">
+  <h6>Liste des titres de posts</h6>
+  <ul>
+    <% @posts.each do |post|%>
+
+      <%= tag.li post.title %>
+      <p class="small">
+        <%= post.updated_at.day %>
+        of
+        <%= I18n.t('date.month_names')[post.updated_at.month] %>
+        <%= post.updated_at.year %>
+      </p>
+    <% end %>
+  </ul>
+</div>
+

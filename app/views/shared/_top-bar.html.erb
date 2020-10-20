@@ -16,8 +16,13 @@
       <% end %>
     </li>
     <li>
+      <%= link_to posts_path, class: "menu-item #{"active" if params[:controller] == "posts" }" do %>
+        <%= image_tag "writing-gray.png", alt: "journal" %>
+      <% end %>
+    </li>
+    <li>
       <%= link_to bookmarks_path, class: "menu-item #{"active" if params[:controller] == "bookmarks" }" do %>
-        <%= image_tag "hyperlink_gray.png", alt: "bookmark" %>
+        <%= image_tag "bookmark-gray.png", alt: "bookmark" %>
       <% end %>
     </li>
     <li>
@@ -27,14 +32,15 @@
     </li>
     <li>
       <%= link_to objectives_path, class: "menu-item #{"active" if params[:controller] == "objectives" }" do %>
-        <%= image_tag "mission_gray.png", alt: "mission" %>
+        <%= image_tag "mission_gray.png", alt: "objectif" %>
       <% end %>
     </li>
-    <li>
-      <%= link_to missions_path, class: "menu-item #{"active" if params[:controller] == "missions" }" do %>
-        <%= image_tag "sketchbook_gray.png", alt: "sketchbook" %>
-      <% end %>
-    </li>
+
+    <!-- <li>
+      <%#= link_to missions_path, class: "menu-item #{"active" if params[:controller] == "missions" }" do %>
+        <%#= image_tag "sketchbook_gray.png", alt: "sketchbook" %>
+      <%# end %>
+    </li> -->
   </ul>
 </div>
 
