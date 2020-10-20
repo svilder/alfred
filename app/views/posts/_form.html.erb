@@ -1,0 +1,7 @@
+<%= simple_form_for @post, remote: true do |f| %>
+  <%= f.input :title %>
+  <%= f.input :context %>
+  <%= f.label :content %>
+  <%= f.rich_text_area :content %>
+  <%= f.button :submit, class: "button" %>
+<% end %>

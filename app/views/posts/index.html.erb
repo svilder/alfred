@@ -1,0 +1,36 @@
+<div class="title">
+  <h4>Journal</h4>
+  <div class="action">
+    <% if policy(Post).create? %>
+      <%= link_to new_post_path do %>
+        <i class="far fa-plus-square"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="grid-3fr-wrapper">
+  <% @posts.each do |post|%>
+    <div class="my-card post">
+      <p><%= post.title %></p>
+      <p><%= post.context %></p>
+      <p><%= post.content %></p>
+      <div class="action-box">
+        <div class="action">
+          <% if policy(post).edit? %>
+            <%= link_to edit_post_path(post) do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="action">
+          <% if policy(post).destroy? %>
+            <%= link_to post, method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
