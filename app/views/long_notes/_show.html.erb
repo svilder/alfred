@@ -1,0 +1,45 @@
+<div class="my-card">
+  <p>Note crée le
+    <em>
+      <%= @long_note.created_at.day %>
+      of
+      <%= I18n.t('date.month_names')[@long_note.created_at.month] %>
+      <%= @long_note.created_at.year %> -
+    </em>
+    Modifiée pour la dernière fois le
+    <em>
+      <%= @long_note.updated_at.day %>
+      of
+      <%= I18n.t('date.month_names')[@long_note.updated_at.month] %>
+      <%= @long_note.updated_at.year %> :
+    </em>
+    <strong><%= @long_note.title %></strong>
+  </p>
+  <p><%= @long_note.description %></p>
+  <% @long_note.images.each do |image| %>
+    <%= cl_image_tag image.key, crop: :fill %>
+  <% end %>
+  <div class="action-box">
+    <div class="action">
+      <% if policy(@long_note).edit? %>
+        <%= link_to edit_long_note_path(@long_note) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="action" data-long_note-id="<%= @long_note.id %>">
+      <% if policy(@long_note).set_public? %>
+        <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
+          <i class="fas fa-share"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="action">
+      <% if policy(@long_note).destroy? %>
+        <%= link_to @long_note, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

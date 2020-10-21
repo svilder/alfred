@@ -1,5 +1,6 @@
 class LongNotesController < ApplicationController
   before_action :set_long_note, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @message = ""
@@ -12,6 +13,11 @@ class LongNotesController < ApplicationController
       @message = "⚠️ Aucune note ne correspond à votre recherche. ⚠️" if @long_notes.count == 0
     else
       @long_notes = policy_scope(LongNote).order(updated_at: :desc).with_rich_text_description_and_embeds
+    end
+    if params[:id]
+      @long_note = LongNote.find(params[:id])
+    else
+      @long_note = @long_notes.first
     end
   end
 
@@ -49,6 +55,16 @@ class LongNotesController < ApplicationController
     end
   end
 
+  def set_public
+    @long_note = LongNote.find(params[:long_note_id])
+    authorize @long_note
+    if @long_note.update_attribute(:publicly_displayed, publicly_displayed)
+      redirect_to long_notes_path, notice: if @long_note.publicly_displayed then "This one is public now. You can share it!" else "Set as private." end
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @long_note.destroy
     redirect_to long_notes_path
@@ -56,12 +72,16 @@ class LongNotesController < ApplicationController
 
   private
 
+  def publicly_displayed
+    @long_note.publicly_displayed ? @long_note.publicly_displayed = false : @long_note.publicly_displayed = true
+  end
+
   def set_long_note
     @long_note = LongNote.find(params[:id])
     authorize @long_note
   end
 
   def long_note_params
-    params.require(:long_note).permit(:title, :description, images: [])
+    params.require(:long_note).permit(:title, :description, :publicly_displayed, images: [])
   end
 end

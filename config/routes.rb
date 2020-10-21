@@ -11,9 +11,12 @@ Rails.application.routes.draw do
     patch 'done', to: 'tasks#done'
   end
 
+  resources :long_notes do
+    patch 'set_public', to: 'long_notes#set_public'
+  end
+
   resources :objectives
   # resources :missions
-  resources :long_notes
   resources :short_notes
   resources :bookmarks
   resources :posts

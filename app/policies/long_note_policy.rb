@@ -6,11 +6,15 @@ class LongNotePolicy < ApplicationPolicy
   end
 
   def show?
-    user_is_owner?
+    record.publicly_displayed || user_is_owner?
   end
 
   def create?
     true
+  end
+
+  def set_public?
+    user_is_owner?
   end
 
   def update?
