@@ -27,7 +27,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="action">
+    <div class="action" data-long_note-id="<%= @long_note.id %>">
       <% if policy(@long_note).set_public? %>
         <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
           <i class="fas fa-share"></i>

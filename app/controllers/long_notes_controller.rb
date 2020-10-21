@@ -1,5 +1,6 @@
 class LongNotesController < ApplicationController
   before_action :set_long_note, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @message = ""
@@ -21,6 +22,7 @@ class LongNotesController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -57,8 +59,8 @@ class LongNotesController < ApplicationController
   def set_public
     @long_note = LongNote.find(params[:long_note_id])
     authorize @long_note
-    if @long_note.update_attribute(:publicly_displayed, params[:long_note_id])
-      redirect_to long_notes_path(@long_note), notice: if @long_note.publicly_displayed then "This one is public now. You can share it!" else "Set as private." end
+    if @long_note.update_attribute(:publicly_displayed, publicly_displayed)
+      redirect_to long_notes_path, notice: if @long_note.publicly_displayed then "This one is public now. You can share it!" else "Set as private." end
     else
       render :edit
     end
@@ -70,6 +72,10 @@ class LongNotesController < ApplicationController
   end
 
   private
+
+  def publicly_displayed
+    @long_note.publicly_displayed ? @long_note.publicly_displayed = false : @long_note.publicly_displayed = true
+  end
 
   def set_long_note
     @long_note = LongNote.find(params[:id])
