@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_144455) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "public", default: false, null: false
+    t.boolean "publicly_displayed", default: false, null: false
     t.index ["user_id"], name: "index_long_notes_on_user_id"
   end
 

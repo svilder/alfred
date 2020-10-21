@@ -54,6 +54,16 @@ class LongNotesController < ApplicationController
     end
   end
 
+  def set_public
+    @long_note = LongNote.find(params[:id])
+    authorize @long_note
+    if @long_note.update_attribute(:publicly_displayed, publicly_displayed)
+      redirect_to to_do_lists_path, notice: if @long_note.publicly_displayed then "Rock star !" else "Tomorrow is another day !" end
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @long_note.destroy
     redirect_to long_notes_path
@@ -67,6 +77,6 @@ class LongNotesController < ApplicationController
   end
 
   def long_note_params
-    params.require(:long_note).permit(:title, :description, images: [])
+    params.require(:long_note).permit(:title, :description, images: [], :publicly_displayed)
   end
 end
