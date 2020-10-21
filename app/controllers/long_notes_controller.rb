@@ -16,7 +16,7 @@ class LongNotesController < ApplicationController
     if params[:id]
       @long_note = LongNote.find(params[:id])
     else
-      @long_note = @long_notes.last
+      @long_note = @long_notes.first
     end
   end
 
