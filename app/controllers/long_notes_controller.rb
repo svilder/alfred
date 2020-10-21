@@ -13,6 +13,11 @@ class LongNotesController < ApplicationController
     else
       @long_notes = policy_scope(LongNote).order(updated_at: :desc).with_rich_text_description_and_embeds
     end
+    if params[:id]
+      @long_note = LongNote.find(params[:id])
+    else
+      @long_note = @long_notes.last
+    end
   end
 
   def show

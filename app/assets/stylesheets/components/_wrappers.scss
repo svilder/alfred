@@ -28,6 +28,26 @@
   display: flex;
 }
 
+.one-third-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 32px;
+}
+
+.two-third {
+  margin-left: 16px;
+  width: calc(100vw - 352px);
+}
+
+.one-third {
+  display: flex;
+  flex-direction: column;
+  width: 352px;
+  height: 100%;
+  position: sticky;
+  top: 172px;
+}
+
 .flex-wrap {
   display: flex;
   justify-content: space-between;
