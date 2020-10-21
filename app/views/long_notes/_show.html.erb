@@ -28,6 +28,13 @@
       <% end %>
     </div>
     <div class="action">
+      <% if policy(@long_note).set_public? %>
+        <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
+          <i class="fas fa-share"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="action">
       <% if policy(@long_note).destroy? %>
         <%= link_to @long_note, method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="far fa-trash-alt"></i>
