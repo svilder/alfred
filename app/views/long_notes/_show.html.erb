@@ -27,13 +27,6 @@
         <% end %>
       <% end %>
     </div>
-    <div class="action" data-long_note-id="<%= @long_note.id %>">
-      <% if policy(@long_note).set_public? %>
-        <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
-          <i class="fas fa-share"></i>
-        <% end %>
-      <% end %>
-    </div>
     <div class="action">
       <% if policy(@long_note).destroy? %>
         <%= link_to @long_note, method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -42,4 +35,29 @@
       <% end %>
     </div>
   </div>
+  <div class="action-box">
+    <div class="action" data-long_note-id="<%= @long_note.id %>">
+      <% if @long_note.publicly_displayed %>
+        <% if policy(@long_note).set_public? %>
+          <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
+            <i class="fas fa-check"></i> Publique :
+          <% end %>
+        <% end %>
+    </div>
+    <div class="action">
+      <%= link_to long_note_path(@long_note) do %>
+        <i class="fas fa-link"></i> <%= show_url(@long_note) %>
+      <% end %>
+    </div>
+    <div class="action">
+      <% else %>
+        <% if policy(@long_note).set_public? %>
+          <%= link_to long_note_set_public_path(@long_note), method: :patch do %>
+            <i class="fas fa-times"></i> Privé
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
