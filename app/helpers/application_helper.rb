@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def show_url(long_note)
+    "https://alfred-takes-notes.herokuapp.com/long_notes/#{long_note.id}"
+  end
+
   def color_preference_helper
     color_preferences = {
       'claret' =>          '#580C1F',
