@@ -25,6 +25,25 @@
   }
 }
 
+.home-bar {
+  width: 560px;
+  border: solid 0;
+  border-color: black black $body-bg black;
+  border-width: 4px 4px 0 4px;
+  border-radius: 16px 16px 0 0;
+  .menu-item {
+    margin: 0;
+    &:hover {
+      border-width: 0;
+      background-color: $yellow;
+    }
+  }
+  .top-menu {
+    justify-content: space-between;
+  }
+}
+
+
 .tools {
   display: flex;
   justify-content: center;
