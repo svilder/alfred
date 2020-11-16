@@ -6,32 +6,32 @@
   <div class="home-bar">
     <ul class="top-menu">
       <li>
-        <%= link_to to_do_lists_path, class: "menu-item #{'active' if params[:controller] == 'to_do_lists'}" do %>
+        <%= link_to to_do_lists_path, class: "menu-item #{'active' if params[:controller] == 'to_do_lists'}", dataToggle:"tooltip", title:"Todos" do %>
           <%= image_tag "list_gray.png", alt: "list" %>
         <% end %>
       </li>
       <li>
-        <%= link_to long_notes_path, class: "menu-item #{"active" if params[:controller] == "long_notes" }" do %>
+        <%= link_to long_notes_path, class: "menu-item #{"active" if params[:controller] == "long_notes" }", dataToggle:"tooltip", title:"Notes" do %>
           <%= image_tag "notebook_gray.png", alt: "notebook" %>
         <% end %>
       </li>
       <li>
-        <%= link_to posts_path, class: "menu-item #{"active" if params[:controller] == "posts" }" do %>
+        <%= link_to posts_path, class: "menu-item #{"active" if params[:controller] == "posts" }", dataToggle:"tooltip", title:"Journal" do %>
           <%= image_tag "writing-gray.png", alt: "journal" %>
         <% end %>
       </li>
       <li>
-        <%= link_to bookmarks_path, class: "menu-item #{"active" if params[:controller] == "bookmarks" }" do %>
+        <%= link_to bookmarks_path, class: "menu-item #{"active" if params[:controller] == "bookmarks" }", dataToggle:"tooltip", title:"Links" do %>
           <%= image_tag "bookmark-gray.png", alt: "bookmark" %>
         <% end %>
       </li>
       <li>
-        <%= link_to short_notes_path, class: "menu-item #{"active" if params[:controller] == "short_notes" }" do %>
+        <%= link_to short_notes_path, class: "menu-item #{"active" if params[:controller] == "short_notes" }", dataToggle:"tooltip", title:"Post-its" do %>
           <%= image_tag "post-it_gray.png", alt: "post-it" %>
         <% end %>
       </li>
       <li>
-        <%= link_to objectives_path, class: "menu-item #{"active" if params[:controller] == "objectives" }" do %>
+        <%= link_to objectives_path, class: "menu-item #{"active" if params[:controller] == "objectives" }", dataToggle:"tooltip", title:"Objectives" do %>
           <%= image_tag "mission_gray.png", alt: "objectif" %>
         <% end %>
       </li>
