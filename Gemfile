@@ -6,8 +6,12 @@ gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '6.0'
+gem 'rails', '~> 6.1.6.1'
 gem 'redis'
+# net-xxx has been removed from the default gems in ruby 3.1 and Action Mailbox
+gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem 'net-smtp', require: false
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
